@@ -25,7 +25,7 @@ United States
 About
 Resume
 Portfolio
-Blog
+Travel
 Contact
 
 # about
@@ -185,9 +185,9 @@ Web development
 
 
 
-# blog
+# travel
 
-Blog
+Travel
 
 alt = Design conferences in 2022
 Design
