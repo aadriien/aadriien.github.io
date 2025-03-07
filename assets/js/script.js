@@ -210,7 +210,20 @@ observer.observe(document.body, { subtree: true, attributes: true, attributeFilt
 
 window.addEventListener("resize", resizeCanvas);
 
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+// min & max zoom distance to globe
+controls.minDistance = 150; 
+controls.maxDistance = 300;
+
+controls.enableDamping = true; 
+controls.dampingFactor = 0.05;
+controls.rotateSpeed = 0.5;
+controls.enableZoom = true; 
+controls.autoRotate = false;
+
 function animate() {
+  controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 }
