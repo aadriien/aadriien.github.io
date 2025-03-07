@@ -1057,24 +1057,27 @@ main {
 \*-----------------------------------*/
 
 .globe-container {
-  width: 600px;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    border: 1px solid var(--jet);
+    overflow: hidden;
 }
   
-#globe {
+.globe figure {
   width: 100%;
   height: 100%;
 }
 
-#globe canvas {
+.globe canvas {
   background-color: rgba(255, 255, 255, 0.1); /* Slightly visible */
   display: block;
 }
-  
 
   
 

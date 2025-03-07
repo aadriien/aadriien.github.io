@@ -162,102 +162,61 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
 // travel page spinning globe with pins
 
-// Ensure the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-  const globeContainer = document.getElementById("globe");
+const globeContainer = document.querySelector(".globe-container");
 
-  if (!globeContainer) {
-    console.error("Globe container not found!");
-    return;
-  }
-
-  const N = 300;
-    const gData = [...Array(N).keys()].map(() => ({
-      lat: (Math.random() - 0.5) * 180,
-      lng: (Math.random() - 0.5) * 360,
-      size: Math.random() / 3,
-      color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
-    }));
-
-  // Create a globe instance
-  const globe = new ThreeGlobe()
-    .globeImageUrl('./assets/images/earth-day.jpg')
-    .bumpImageUrl('./assets/images/earth-blue-marble.jpg')
-    .pointsData(gData)
-      .pointAltitude('size')
-      .pointColor('color');
-
-      const renderer = new THREE.WebGLRenderer();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(window.devicePixelRatio);
-      globeContainer.appendChild(renderer.domElement);
+const renderer = new THREE.WebGLRenderer();
+const globe = new ThreeGlobe()
+  .globeImageUrl('./assets/images/earth-day.jpg')
+  .bumpImageUrl('./assets/images/earth-blue-marble.jpg');
   
+// globe.scale.set(2.5, 2.5, 2.5);
 
-  console.log(renderer.domElement);
+const scene = new THREE.Scene();
+scene.add(globe);
+scene.add(new THREE.AmbientLight(0xcccccc, Math.PI));
+scene.add(new THREE.DirectionalLight(0xffffff, 0.6 * Math.PI));
 
-  const scene = new THREE.Scene();
-    scene.add(globe);
-    scene.add(new THREE.AmbientLight(0xcccccc, Math.PI));
-    scene.add(new THREE.DirectionalLight(0xffffff, 0.6 * Math.PI));
+const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+camera.position.z = 200;
 
-    // Setup camera
-    // const camera = new THREE.PerspectiveCamera();
-    // camera.aspect = window.innerWidth/window.innerHeight;
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 5; // You can try changing this to a higher or lower value
+function resizeCanvas() {
+  if (!globeContainer.offsetWidth || !globeContainer.offsetHeight) return;
 
-    camera.updateProjectionMatrix();
-    camera.position.z = 500;
+  const containerWidth = globeContainer.offsetWidth;
+  const containerHeight = globeContainer.offsetHeight;
 
+// increase pixel density for clarity
+  renderer.setSize(containerWidth, containerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio * 1.5);  
+  camera.aspect = containerWidth / containerHeight;
+  camera.updateProjectionMatrix();
+}
 
-  function animate() {
-    renderer.render(scene, camera);
-    requestAnimationFrame(animate);
-    
+// attach renderer AFTER size is set
+function initGlobe() {
+  if (!globeContainer.contains(renderer.domElement)) {
+    globeContainer.appendChild(renderer.domElement);
   }
+  resizeCanvas();
+}
 
-  animate();
+// watch for changes to the `.travel` section becoming active
+const observer = new MutationObserver(() => {
+  if (document.querySelector(".travel.active")) {
+    initGlobe();
+  }
 });
+observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ["class"] });
 
+window.addEventListener("resize", resizeCanvas);
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     // Ensure #globe exists
-//     const globeContainer = document.getElementById('globe');
-//     if (!globeContainer) {
-//         console.error("ERROR: #globe container not found!");
-//         return;
-//     }
+function animate() {
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+}
 
-//     // Create a spinning globe using Globe.gl library
-//     const world = new ThreeGlobe()
-//       .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-//       .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-//       .backgroundColor('rgba(0,0,0,0)') // Transparent background
-//       .width(600)
-//       .height(400)
-//       .pointOfView({ lat: 20, lng: 0, altitude: 2.5 }) // Start position
-//       .onGlobeClick(({ lat, lng }) => {
-//         console.log(`Globe clicked at: ${lat}, ${lng}`);
-//       });
+animate();
 
-//     // Append correctly
-//     world.appendTo(globeContainer);
-
-//     // Sample location data
-//     const locations = [
-//       { name: "Italy", lat: 41.8719, lng: 12.5674, link: "#italy" },
-//       { name: "New Orleans", lat: 29.9511, lng: -90.0715, link: "#new-orleans" }
-//     ];
-
-//     world.labelsData(locations)
-//       .labelText(d => d.name)
-//       .labelSize(4)  // Increase visibility
-//       .labelDotRadius(1)
-//       .labelColor(() => 'white')
-//       .onLabelClick(d => {
-//         document.querySelector(d.link)?.scrollIntoView({ behavior: 'smooth' });
-//       });
-// });
 
   
 
