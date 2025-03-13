@@ -195,6 +195,14 @@ const regionColors = {
     "United States": addAlphaToColor(getCssVar('--deep-teal'), 1), 
 };
 
+// const regionColors = {
+//     "Spain": "rgb(176, 106, 129)",        // Spain (muted rose)
+//     "United Kingdom": "rgb(103, 173, 185)", // UK (light sky blue)
+//     "Germany": "rgb(114, 141, 134)",      // Germany (faded green)
+//     "Austria": "rgb(255, 175, 133)",      // Austria (soft peach)
+//     "United States": "rgb(30, 68, 75)",    // USA (deep teal)
+// };
+
 // Function to create points data for countries and cities
 function loadPlacesData() {
     return fetch('./assets/data/places.json')
@@ -204,6 +212,7 @@ function loadPlacesData() {
 
         data.forEach(region => {
             const regionColor = regionColors[region.name] || "rgba(0, 0, 0, 1)"; // Default to black if no color found
+            const baseDelay = Math.random() * 2000;  // Randomized delay for each region
 
             // Add the region (country) itself
             pointsData.push({
@@ -213,6 +222,9 @@ function loadPlacesData() {
                 color: regionColor,  // Use the region's color
                 label: region.name,
                 type: "region",
+                ringMaxSize: 3,
+                ringPropagationSpeed: 1,
+                ringRepeatPeriod: 2000 + baseDelay,
             });
 
             // Add the cities within the region, using a lighter version of the region's color
@@ -224,6 +236,9 @@ function loadPlacesData() {
                     color: changeColorOpacity(regionColor, 0.5),  // Lighter version for cities
                     label: city.name,
                     type: "city",
+                    ringMaxSize: 0,
+                    ringPropagationSpeed: 1,
+                    ringRepeatPeriod: 3500 + baseDelay,
                 });
             });
         });
@@ -237,90 +252,114 @@ function loadPlacesData() {
 }
 
 
+function createGlobe() {
+    loadPlacesData().then(pointsData => {
+        const regionData = pointsData.filter(place => place.type === 'region');
+        const cityData = pointsData.filter(place => place.type === 'city');
 
-loadPlacesData().then(pointsData => {
-    const regionData = pointsData.filter(place => place.type === 'region');
-    const cityData = pointsData.filter(place => place.type === 'city');
+        const globeContainer = document.querySelector(".globe-container");
+        const renderer = new THREE.WebGLRenderer();
 
-    const globeContainer = document.querySelector(".globe-container");
+        const colorInterpolator = t => 'rgba(0, 0, 0, ${1-t})';
 
-    const renderer = new THREE.WebGLRenderer();
-    const globe = new ThreeGlobe()
-    .globeImageUrl('./assets/images/earth-day.jpg')
-    .bumpImageUrl('./assets/images/earth-blue-marble.jpg')
-    .pointsData(pointsData) 
-    .pointRadius('size')
-    .pointColor('color')
-    .pointAltitude(0.05)
+        const globe = new ThreeGlobe()
+            .globeImageUrl('./assets/images/earth-day.jpg')
+            .bumpImageUrl('./assets/images/earth-blue-marble.jpg')
+            // .pointsData(pointsData) 
+            // .pointRadius('size')
+            // .pointColor('#000')
+            // .pointAltitude(0.0)
 
-    .labelsData(pointsData)  
-    .labelText(d => d.label) 
-    .labelSize(d => d.size) 
-    .labelDotRadius(d => d.size / 5) 
-    .labelColor("#000"); 
-    
-    
-    
-    // globe.scale.set(2.5, 2.5, 2.5);
+            // .labelsData(pointsData)  
+            // .labelText(d => d.label) 
+            // .labelSize(d => d.size) 
+            // .labelDotRadius(d => d.size / 5) 
+            // .labelColor('#000'); 
 
-    const scene = new THREE.Scene();
-    scene.add(globe);
-    scene.add(new THREE.AmbientLight(0xcccccc, Math.PI));
-    scene.add(new THREE.DirectionalLight(0xffffff, 0.6 * Math.PI));
+            .ringsData(pointsData)
+            .ringColor(() => colorInterpolator)
+            .ringMaxRadius('ringMaxSize')
+            .ringPropagationSpeed('ringPropagationSpeed')
+            .ringRepeatPeriod('ringRepeatPeriod');
 
-    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-    camera.position.z = 200;
+        
+        
+        // Material for the globe with roughness
+        const globeMaterial = new THREE.MeshStandardMaterial({
+            color: 0x0055ff, 
+            roughness: 0.7,  
+            metalness: 0.3,  
+            emissive: 0x0033ff, 
+            emissiveIntensity: 0.1, 
+        });
+        globe.material = globeMaterial;
 
-    function resizeCanvas() {
-    if (!globeContainer.offsetWidth || !globeContainer.offsetHeight) return;
+        
+        // globe.scale.set(2.5, 2.5, 2.5);
 
-    const containerWidth = globeContainer.offsetWidth;
-    const containerHeight = globeContainer.offsetHeight;
+        const scene = new THREE.Scene();
+        scene.add(globe);
+        scene.add(new THREE.AmbientLight(0xcccccc, 0.5 * Math.PI));
+        scene.add(new THREE.DirectionalLight(0xffffff, 0.6 * Math.PI).position.set(0, 1, 1));
+        
 
-    // increase pixel density for clarity
-    renderer.setSize(containerWidth, containerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio * 1.5);  
-    camera.aspect = containerWidth / containerHeight;
-    camera.updateProjectionMatrix();
-    }
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        camera.position.z = 200;
 
-    // attach renderer AFTER size is set
-    function initGlobe() {
-    if (!globeContainer.contains(renderer.domElement)) {
-        globeContainer.appendChild(renderer.domElement);
-    }
-    resizeCanvas();
-    }
+        function resizeCanvas() {
+        if (!globeContainer.offsetWidth || !globeContainer.offsetHeight) return;
 
-    // watch for changes to the `.travel` section becoming active
-    const observer = new MutationObserver(() => {
-    if (document.querySelector(".travel.active")) {
-        initGlobe();
-    }
+        const containerWidth = globeContainer.offsetWidth;
+        const containerHeight = globeContainer.offsetHeight;
+
+        // increase pixel density for clarity
+        renderer.setSize(containerWidth, containerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);  
+        camera.aspect = containerWidth / containerHeight;
+        camera.updateProjectionMatrix();
+        }
+
+        // attach renderer AFTER size is set
+        function initGlobe() {
+        if (!globeContainer.contains(renderer.domElement)) {
+            globeContainer.appendChild(renderer.domElement);
+        }
+        resizeCanvas();
+        }
+
+        // watch for changes to the `.travel` section becoming active
+        const observer = new MutationObserver(() => {
+        if (document.querySelector(".travel.active")) {
+            initGlobe();
+        }
+        });
+        observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ["class"] });
+
+        window.addEventListener("resize", resizeCanvas);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+        // min & max zoom distance to globe
+        controls.minDistance = 130; 
+        controls.maxDistance = 230;
+
+        controls.enableDamping = true; 
+        controls.dampingFactor = 0.05;
+        controls.rotateSpeed = 0.5;
+        controls.enableZoom = true; 
+        controls.autoRotate = false;
+
+        function animate() {
+        controls.update();
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+        }
+
+        animate();
     });
-    observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ["class"] });
+}
 
-    window.addEventListener("resize", resizeCanvas);
+createGlobe();
 
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
-
-    // min & max zoom distance to globe
-    controls.minDistance = 130; 
-    controls.maxDistance = 230;
-
-    controls.enableDamping = true; 
-    controls.dampingFactor = 0.05;
-    controls.rotateSpeed = 0.5;
-    controls.enableZoom = true; 
-    controls.autoRotate = false;
-
-    function animate() {
-    controls.update();
-    renderer.render(scene, camera);
-    requestAnimationFrame(animate);
-    }
-
-    animate();
-});
 
 
