@@ -1,157 +1,185 @@
 [
     {
-      "name": "Spain",
-      "latitude": 40.4637,
-      "longitude": -3.7492,
-      "pinSize": 2,
-      "cities": [
-        {
-          "name": "Madrid",
-          "latitude": 40.4168,
-          "longitude": -3.7038,
-          "pinSize": 1
-        },
-        {
-          "name": "Barcelona",
-          "latitude": 41.3784,
-          "longitude": 2.1924,
-          "pinSize": 1
-        }
-      ]
+        "name": "Spain",
+        "latitude": 40.4637,
+        "longitude": -3.7492,
+        "pinSize": 2,
+        "cities": [
+            {
+                "name": "Madrid",
+                "latitude": 40.4168,
+                "longitude": -3.7038,
+                "pinSize": 1
+            },
+            {
+                "name": "Barcelona",
+                "latitude": 41.3784,
+                "longitude": 2.1924,
+                "pinSize": 1
+            }
+        ]
     },
     {
-      "name": "United Kingdom",
-      "latitude": 51.5074,
-      "longitude": -0.1278,
-      "pinSize": 2,
-      "cities": [
-        {
-          "name": "London",
-          "latitude": 51.5074,
-          "longitude": -0.1278,
-          "pinSize": 1
-        },
-        {
-          "name": "Edinburgh",
-          "latitude": 55.9533,
-          "longitude": -3.1883,
-          "pinSize": 1
-        },
-        {
-          "name": "Glasgow",
-          "latitude": 55.8642,
-          "longitude": -4.2518,
-          "pinSize": 1
-        },
-        {
-          "name": "Manchester",
-          "latitude": 53.4808,
-          "longitude": -2.2426,
-          "pinSize": 1
-        },
-        {
-          "name": "Liverpool",
-          "latitude": 53.4084,
-          "longitude": -2.9916,
-          "pinSize": 1
-        },
-        {
-          "name": "Cardiff",
-          "latitude": 51.4816,
-          "longitude": -3.1791,
-          "pinSize": 1
-        }
-      ]
+        "name": "United Kingdom",
+        "latitude": 51.5074,
+        "longitude": -0.1278,
+        "pinSize": 2,
+        "cities": [
+            {
+                "name": "London",
+                "latitude": 51.5074,
+                "longitude": -0.1278,
+                "pinSize": 1
+            },
+            {
+                "name": "Edinburgh",
+                "latitude": 55.9533,
+                "longitude": -3.1883,
+                "pinSize": 1
+            },
+            {
+                "name": "Glasgow",
+                "latitude": 55.8642,
+                "longitude": -4.2518,
+                "pinSize": 1
+            },
+            {
+                "name": "Manchester",
+                "latitude": 53.4808,
+                "longitude": -2.2426,
+                "pinSize": 1
+            },
+            {
+                "name": "Liverpool",
+                "latitude": 53.4084,
+                "longitude": -2.9916,
+                "pinSize": 1
+            },
+            {
+                "name": "Cardiff",
+                "latitude": 51.4816,
+                "longitude": -3.1791,
+                "pinSize": 1
+            }
+        ]
     },
     {
-      "name": "Germany",
-      "latitude": 51.1657,
-      "longitude": 10.4515,
-      "pinSize": 2,
-      "cities": [
-        {
-          "name": "Munich",
-          "latitude": 48.1351,
-          "longitude": 11.5820,
-          "pinSize": 1
-        }
-      ]
+        "name": "Germany",
+        "latitude": 51.1657,
+        "longitude": 10.4515,
+        "pinSize": 2,
+        "cities": [
+            {
+                "name": "Munich",
+                "latitude": 48.1351,
+                "longitude": 11.5820,
+                "pinSize": 1
+            }
+        ]
     },
     {
-      "name": "Austria",
-      "latitude": 47.5162,
-      "longitude": 13.3777,
-      "pinSize": 2,
-      "cities": [
-        {
-          "name": "Vienna",
-          "latitude": 48.2082,
-          "longitude": 16.3738,
-          "pinSize": 1
-        }
-      ]
+        "name": "Austria",
+        "latitude": 47.5162,
+        "longitude": 13.3777,
+        "pinSize": 2,
+        "cities": [
+            {
+                "name": "Vienna",
+                "latitude": 48.2082,
+                "longitude": 16.3738,
+                "pinSize": 1
+            }
+        ]
     },
     {
-      "name": "United States",
-      "latitude": 37.0902,
-      "longitude": -95.7129,
-      "pinSize": 2,
-      "cities": [
-        {
-          "name": "New York",
-          "latitude": 40.7128,
-          "longitude": -74.0060,
-          "pinSize": 1
-        },
-        {
-          "name": "Boston",
-          "latitude": 42.3601,
-          "longitude": -71.0589,
-          "pinSize": 1
-        },
-        {
-          "name": "Washington DC",
-          "latitude": 38.9072,
-          "longitude": -77.0369,
-          "pinSize": 1
-        },
-        {
-          "name": "Richmond",
-          "latitude": 37.5407,
-          "longitude": -77.4360,
-          "pinSize": 1
-        },
-        {
-          "name": "Denver",
-          "latitude": 39.7392,
-          "longitude": -104.9903,
-          "pinSize": 1
-        },
-        {
-          "name": "San Francisco",
-          "latitude": 37.7749,
-          "longitude": -122.4194,
-          "pinSize": 1
-        },
-        {
-          "name": "Los Angeles",
-          "latitude": 34.0522,
-          "longitude": -118.2437,
-          "pinSize": 1
-        },
-        {
-          "name": "Orlando",
-          "latitude": 28.5383,
-          "longitude": -81.3792,
-          "pinSize": 1
-        },
-        {
-          "name": "Philadelphia",
-          "latitude": 39.9526,
-          "longitude": -75.1652,
-          "pinSize": 1
-        }
-      ]
+        "name": "United States",
+        "latitude": 37.0902,
+        "longitude": -95.7129,
+        "pinSize": 2,
+        "cities": [
+            {
+                "name": "New York",
+                "latitude": 40.7128,
+                "longitude": -74.0060,
+                "pinSize": 1
+            },
+            {
+                "name": "Boston",
+                "latitude": 42.3601,
+                "longitude": -71.0589,
+                "pinSize": 1
+            },
+            {
+                "name": "Washington DC",
+                "latitude": 38.9072,
+                "longitude": -77.0369,
+                "pinSize": 1
+            },
+            {
+                "name": "Richmond",
+                "latitude": 37.5407,
+                "longitude": -77.4360,
+                "pinSize": 1
+            },
+            {
+                "name": "Denver",
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "pinSize": 1
+            },
+            {
+                "name": "San Francisco",
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "pinSize": 1
+            },
+            {
+                "name": "Los Angeles",
+                "latitude": 34.0522,
+                "longitude": -118.2437,
+                "pinSize": 1
+            },
+            {
+                "name": "Orlando",
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "pinSize": 1
+            },
+            {
+                "name": "Philadelphia",
+                "latitude": 39.9526,
+                "longitude": -75.1652,
+                "pinSize": 1
+            }
+        ]
+    },
+    {
+        "name": "Puerto Rico",
+        "latitude": 18.2208,
+        "longitude": -66.5901,
+        "pinSize": 2,
+        "cities": [
+            {
+                "name": "San Juan",
+                "latitude": 18.4655,
+                "longitude": -66.1057,
+                "pinSize": 1
+            }
+        ]
+    },
+    {
+        "name": "Mexico",
+        "latitude": 23.6345,
+        "longitude": -102.5528,
+        "pinSize": 2,
+        "cities": [
+            {
+                "name": "Cancún",
+                "latitude": 21.1743,
+                "longitude": -86.8466,
+                "pinSize": 1
+            }
+        ]
     }
 ]
-  
+
