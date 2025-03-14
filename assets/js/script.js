@@ -193,6 +193,8 @@ const regionColors = {
     "Germany": addAlphaToColor(getCssVar('--faded-green'), 1), 
     "Austria": addAlphaToColor(getCssVar('--soft-peach'), 1),  
     "United States": addAlphaToColor(getCssVar('--deep-teal'), 1), 
+    "Puerto Rico": addAlphaToColor(getCssVar('--deep-teal'), 1), 
+    "Mexico": addAlphaToColor(getCssVar('--deep-teal'), 1), 
 };
 
 // const regionColors = {
@@ -287,7 +289,7 @@ function createGlobe() {
 
         const globe = new ThreeGlobe()
             .globeImageUrl('./assets/images/three-globe-imgs/earth-blue-marble.jpg')
-            .bumpImageUrl('./assets/images/three-globe-imgs/earth-topology.jpg')
+            .bumpImageUrl('./assets/images/three-globe-imgs/earth-topology.png')
             // .pointsData(pointsData) 
             // .pointRadius('size')
             // .pointColor('#000')
@@ -318,7 +320,7 @@ function createGlobe() {
         globe.material = globeMaterial;
 
         
-        // globe.scale.set(2.5, 2.5, 2.5);
+        globe.scale.set(1, 1, 1);
 
         const scene = new THREE.Scene();
         scene.add(globe);
@@ -339,31 +341,31 @@ function createGlobe() {
 
 
         function resizeCanvas() {
-        if (!globeContainer.offsetWidth || !globeContainer.offsetHeight) return;
+            if (!globeContainer.offsetWidth || !globeContainer.offsetHeight) return;
 
-        const containerWidth = globeContainer.offsetWidth;
-        const containerHeight = globeContainer.offsetHeight;
+            const containerWidth = globeContainer.offsetWidth;
+            const containerHeight = globeContainer.offsetHeight;
 
-        // increase pixel density for clarity
-        renderer.setSize(containerWidth, containerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);  
-        camera.aspect = containerWidth / containerHeight;
-        camera.updateProjectionMatrix();
+            // increase pixel density for clarity
+            renderer.setSize(containerWidth, containerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);  
+            camera.aspect = containerWidth / containerHeight;
+            camera.updateProjectionMatrix();
         }
 
         // attach renderer AFTER size is set
         function initGlobe() {
-        if (!globeContainer.contains(renderer.domElement)) {
-            globeContainer.appendChild(renderer.domElement);
-        }
-        resizeCanvas();
+            if (!globeContainer.contains(renderer.domElement)) {
+                globeContainer.appendChild(renderer.domElement);
+            }
+            resizeCanvas();
         }
 
         // watch for changes to the `.travel` section becoming active
         const observer = new MutationObserver(() => {
-        if (document.querySelector(".travel.active")) {
-            initGlobe();
-        }
+            if (document.querySelector(".travel.active")) {
+                initGlobe();
+            }
         });
         observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ["class"] });
 
@@ -392,6 +394,10 @@ function createGlobe() {
 }
 
 createGlobe();
+
+
+
+
 
 
 
