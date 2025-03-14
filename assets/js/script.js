@@ -222,8 +222,8 @@ function loadPlacesData() {
                 color: regionColor,  // Use the region's color
                 label: region.name,
                 type: "region",
-                ringMaxSize: 3,
-                ringPropagationSpeed: 1,
+                ringMaxSize: 5,
+                ringPropagationSpeed: 0.7,
                 ringRepeatPeriod: 2000 + baseDelay,
             });
 
@@ -260,11 +260,34 @@ function createGlobe() {
         const globeContainer = document.querySelector(".globe-container");
         const renderer = new THREE.WebGLRenderer();
 
-        const colorInterpolator = t => 'rgba(0, 0, 0, ${1-t})';
+        // const colorInterpolator = t => `rgba(255, 255, 0, ${0.5 + (1 - t) / 3})`;
+
+        // const colorInterpolator = t => {
+        //     const r = Math.round(255 - t * 255);  // Cyan to magenta effect
+        //     const g = Math.round(255 - t * 100);   // Gradual color change
+        //     return `rgba(${r}, ${g}, 255, ${0.9 + (1 - t) * 0.3})`;
+        // };
+
+        const colorInterpolator = t => {
+            // Yellow (255, 255, 0) -> Neon Cyan (0, 255, 255) transition
+            const r = Math.round(255 - t * 255);  // Transition from yellow to red
+            const g = Math.round(255);             // Keep green constant (255)
+            const b = Math.round(t * 255);        // Transition from no blue to full cyan
+            return `rgba(${r}, ${g}, ${b}, ${0.9 + (1 - t) * 0.1})`;  // Hold opacity
+        };
+
+        // const colorInterpolator = t => {
+        //     // Yellow (255, 255, 0) -> Red (255, 0, 0) transition
+        //     const r = 255;  // Keep red at full intensity
+        //     const g = Math.round(255 - t * 255);  // Green fades from yellow to 0
+        //     const b = 0;  // Keep blue at 0 for pure red
+        //     return `rgba(${r}, ${g}, ${b}, ${0.9 + (1 - t) * 0.1})`;  // Hold opacity
+        // };
+        
 
         const globe = new ThreeGlobe()
-            .globeImageUrl('./assets/images/earth-day.jpg')
-            .bumpImageUrl('./assets/images/earth-blue-marble.jpg')
+            .globeImageUrl('./assets/images/three-globe-imgs/earth-blue-marble.jpg')
+            .bumpImageUrl('./assets/images/three-globe-imgs/earth-topology.jpg')
             // .pointsData(pointsData) 
             // .pointRadius('size')
             // .pointColor('#000')
@@ -289,8 +312,8 @@ function createGlobe() {
             color: 0x0055ff, 
             roughness: 0.7,  
             metalness: 0.3,  
-            emissive: 0x0033ff, 
-            emissiveIntensity: 0.1, 
+            emissive: 0xFFD700, 
+            emissiveIntensity: 1, 
         });
         globe.material = globeMaterial;
 
@@ -304,7 +327,16 @@ function createGlobe() {
         
 
         const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-        camera.position.z = 200;
+
+        // Start with view of the Americas
+        camera.position.set(-200, 50, 50);
+
+        // Start with view of Europe
+        // camera.position.set(20, 110, 150);
+
+        // Start with view between the Americas & Europe
+        // camera.position.set(-120, 100, 100);
+
 
         function resizeCanvas() {
         if (!globeContainer.offsetWidth || !globeContainer.offsetHeight) return;
@@ -341,7 +373,7 @@ function createGlobe() {
 
         // min & max zoom distance to globe
         controls.minDistance = 130; 
-        controls.maxDistance = 230;
+        controls.maxDistance = 220;
 
         controls.enableDamping = true; 
         controls.dampingFactor = 0.05;
