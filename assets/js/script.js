@@ -193,17 +193,10 @@ const regionColors = {
     "Germany": addAlphaToColor(getCssVar('--faded-green'), 1), 
     "Austria": addAlphaToColor(getCssVar('--soft-peach'), 1),  
     "United States": addAlphaToColor(getCssVar('--deep-teal'), 1), 
-    "Puerto Rico": addAlphaToColor(getCssVar('--deep-teal'), 1), 
-    "Mexico": addAlphaToColor(getCssVar('--deep-teal'), 1), 
+    "Puerto Rico": addAlphaToColor(getCssVar('--soft-purple'), 1), 
+    "Mexico": addAlphaToColor(getCssVar('--bright-blue'), 1), 
 };
 
-// const regionColors = {
-//     "Spain": "rgb(176, 106, 129)",        // Spain (muted rose)
-//     "United Kingdom": "rgb(103, 173, 185)", // UK (light sky blue)
-//     "Germany": "rgb(114, 141, 134)",      // Germany (faded green)
-//     "Austria": "rgb(255, 175, 133)",      // Austria (soft peach)
-//     "United States": "rgb(30, 68, 75)",    // USA (deep teal)
-// };
 
 // Function to create points data for countries and cities
 function loadPlacesData() {
@@ -262,14 +255,6 @@ function createGlobe() {
         const globeContainer = document.querySelector(".globe-container");
         const renderer = new THREE.WebGLRenderer();
 
-        // const colorInterpolator = t => `rgba(255, 255, 0, ${0.5 + (1 - t) / 3})`;
-
-        // const colorInterpolator = t => {
-        //     const r = Math.round(255 - t * 255);  // Cyan to magenta effect
-        //     const g = Math.round(255 - t * 100);   // Gradual color change
-        //     return `rgba(${r}, ${g}, 255, ${0.9 + (1 - t) * 0.3})`;
-        // };
-
         const colorInterpolator = t => {
             // Yellow (255, 255, 0) -> Neon Cyan (0, 255, 255) transition
             const r = Math.round(255 - t * 255);  // Transition from yellow to red
@@ -278,36 +263,15 @@ function createGlobe() {
             return `rgba(${r}, ${g}, ${b}, ${0.9 + (1 - t) * 0.1})`;  // Hold opacity
         };
 
-        // const colorInterpolator = t => {
-        //     // Yellow (255, 255, 0) -> Red (255, 0, 0) transition
-        //     const r = 255;  // Keep red at full intensity
-        //     const g = Math.round(255 - t * 255);  // Green fades from yellow to 0
-        //     const b = 0;  // Keep blue at 0 for pure red
-        //     return `rgba(${r}, ${g}, ${b}, ${0.9 + (1 - t) * 0.1})`;  // Hold opacity
-        // };
-        
-
         const globe = new ThreeGlobe()
             .globeImageUrl('./assets/images/three-globe-imgs/earth-blue-marble.jpg')
             .bumpImageUrl('./assets/images/three-globe-imgs/earth-topology.png')
-            // .pointsData(pointsData) 
-            // .pointRadius('size')
-            // .pointColor('#000')
-            // .pointAltitude(0.0)
-
-            // .labelsData(pointsData)  
-            // .labelText(d => d.label) 
-            // .labelSize(d => d.size) 
-            // .labelDotRadius(d => d.size / 5) 
-            // .labelColor('#000'); 
-
             .ringsData(pointsData)
             .ringColor(() => colorInterpolator)
             .ringMaxRadius('ringMaxSize')
             .ringPropagationSpeed('ringPropagationSpeed')
             .ringRepeatPeriod('ringRepeatPeriod');
 
-        
         
         // Material for the globe with roughness
         const globeMaterial = new THREE.MeshStandardMaterial({
