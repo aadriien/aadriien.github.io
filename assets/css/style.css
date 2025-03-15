@@ -981,6 +981,11 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 0px 15px rgba(97, 173, 255, 0.6); /* sky-blue reduced opacity */
+}
+
+.project-img:hover {
+    box-shadow: 0px 0px 30px rgba(173, 127, 255, 0.9); /* soft-purple reduced opacity */
 }
 
 .project-img::before {
@@ -1027,6 +1032,7 @@ main {
   object-fit: cover;
   object-position: center;
   transition: var(--transition-1);
+  aspect-ratio: 1; /* force images into square shape (crop) */
 }
 
 .project-item > a:hover img { transform: scale(1.1); }
