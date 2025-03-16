@@ -1,4 +1,4 @@
-vCard - Personal Portfolio
+vCard - Personal Projects
 
 # sidebar
 
@@ -24,8 +24,8 @@ United States
 
 About
 Resume
-Portfolio
-Travel
+Projects
+Places
 Contact
 
 # about
@@ -132,9 +132,9 @@ WordPress
 
 
 
-# portfolio
+# projects
 
-Portfolio
+Projects
 
 All
 Web design
@@ -185,9 +185,9 @@ Web development
 
 
 
-# travel
+# places
 
-Travel
+Places
 
 alt = Design conferences in 2022
 Design
