@@ -161,8 +161,155 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
 
 
+let isFirstLoad = true;
+document.addEventListener("DOMContentLoaded", function() {
+    // Only apply timeout on the first load
+    if (isFirstLoad) {
+        setTimeout(function() {
+            attachToggleEvents();
+            isFirstLoad = false; 
+        }, 10);  // Slight delay to ensure everything is populated
+    } else {
+        attachToggleEvents();
+    }
+});
 
-// travel page spinning globe with pins
+function attachToggleEvents() {
+    const toggleCards = document.querySelectorAll(".toggle-card");
+
+    toggleCards.forEach((card) => {
+        card.addEventListener("click", function (event) {
+            event.preventDefault();  // Prevent default behavior
+            console.log("Card clicked:", card);
+
+            let timelineContainer = card.querySelector(".timeline-container");
+
+            if (timelineContainer) {
+                // Toggle open class
+                if (timelineContainer.classList.contains("open")) {
+                    timelineContainer.classList.remove("open");
+                } 
+                else {
+                    timelineContainer.classList.add("open");
+                }
+            } else {
+                console.log("Timeline container not found for:", card);
+            }
+        });
+    });
+}
+
+
+function populatePlacesPage() {
+    return fetch('./assets/data/places.json')
+        .then(response => response.json())
+        .then(data => {
+            const placesList = document.querySelector(".places-posts-list"); // Target the <ul> container
+
+            data.forEach(country => {
+                // Create list item
+                const listItem = document.createElement("li");
+                listItem.classList.add("places-post-item");
+
+                // Create card container
+                const cardContent = document.createElement("div");
+                cardContent.classList.add("card-content", "toggle-card");
+
+                // Create places content
+                const placesContent = document.createElement("div");
+                placesContent.classList.add("places-content");
+
+                // Meta category (e.g., Continent or Category)
+                const placesMeta = document.createElement("div");
+                placesMeta.classList.add("places-meta");
+                placesMeta.innerHTML = `<p class="places-category">Europe</p>`;
+
+                // Country Title
+                const title = document.createElement("h3");
+                title.classList.add("h3", "places-item-title");
+                title.textContent = country.name;
+
+                // Append elements
+                placesContent.appendChild(placesMeta);
+                placesContent.appendChild(title);
+                cardContent.appendChild(placesContent);
+
+                // Timeline Container (Hidden by Default)
+                const timelineContainer = document.createElement("div");
+                timelineContainer.classList.add("timeline-container");
+                timelineContainer.style.display = "none"; // Initially hidden
+
+                const timelineSection = document.createElement("section");
+                timelineSection.classList.add("timeline");
+
+                // Timeline Header
+                const titleWrapper = document.createElement("div");
+                titleWrapper.classList.add("title-wrapper");
+
+                const iconBox = document.createElement("div");
+                iconBox.classList.add("icon-box");
+                iconBox.innerHTML = `<ion-icon name="book-outline"></ion-icon>`;
+
+                const timelineTitle = document.createElement("h3");
+                timelineTitle.classList.add("h3");
+                timelineTitle.textContent = country.name;
+
+                titleWrapper.appendChild(iconBox);
+                titleWrapper.appendChild(timelineTitle);
+
+                // Timeline List
+                const timelineList = document.createElement("ol");
+                timelineList.classList.add("timeline-list");
+
+                country.cities.forEach(city => {
+                    const timelineItem = document.createElement("li");
+                    timelineItem.classList.add("timeline-item");
+
+                    const timelineItemTitle = document.createElement("h4");
+                    timelineItemTitle.classList.add("h4", "timeline-item-title");
+                    timelineItemTitle.textContent = city.name;
+
+                    timelineItem.appendChild(timelineItemTitle);
+                    timelineList.appendChild(timelineItem);
+                });
+
+                // Append everything to the timeline
+                timelineSection.appendChild(titleWrapper);
+                timelineSection.appendChild(timelineList);
+                timelineContainer.appendChild(timelineSection);
+                cardContent.appendChild(timelineContainer);
+                listItem.appendChild(cardContent);
+                placesList.appendChild(listItem);
+
+                // Add click event to toggle timeline visibility
+                cardContent.addEventListener("click", (event) => {
+                    event.preventDefault(); // Prevent page scroll to top
+
+                    // Toggle display of the timeline container
+                    if (timelineContainer.style.display === "none") {
+                        timelineContainer.style.display = "block"; // Show the timeline
+                    } else {
+                        timelineContainer.style.display = "none"; // Hide the timeline
+                    }
+                });
+            });
+
+            console.log(placesList)
+        })
+        .catch(error => console.error("Error loading places data:", error));
+}
+
+// Call function on page load
+document.addEventListener("DOMContentLoaded", populatePlacesPage);
+
+
+  
+
+
+
+
+
+// places page spinning globe with pins
 
 function getCssVar(variableName) {
     return getComputedStyle(document.documentElement).getPropertyValue(variableName);
@@ -325,9 +472,9 @@ function createGlobe() {
             resizeCanvas();
         }
 
-        // watch for changes to the `.travel` section becoming active
+        // watch for changes to the `.places` section becoming active
         const observer = new MutationObserver(() => {
-            if (document.querySelector(".travel.active")) {
+            if (document.querySelector(".places.active")) {
                 initGlobe();
             }
         });
