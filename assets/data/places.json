@@ -20,9 +20,23 @@
         ]
     },
     {
+        "name": "France",
+        "latitude": 46.6034,
+        "longitude": 1.8883,
+        "pinSize": 2,
+        "cities": [
+            {
+                "name": "Paris",
+                "latitude": 48.8566,
+                "longitude": 2.3522,
+                "pinSize": 1
+            }
+        ]
+    },    
+    {
         "name": "United Kingdom",
-        "latitude": 51.5074,
-        "longitude": -0.1278,
+        "latitude": 52.9550,
+        "longitude": -1.5321,
         "pinSize": 2,
         "cities": [
             {
