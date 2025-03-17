@@ -4,6 +4,9 @@
         "latitude": 40.4637,
         "longitude": -3.7492,
         "pinSize": 2,
+        "favoriteFood": "Patatas bravas",
+        "mustSee": "El Retiro (go find the peacocks)! For something more active, Casa de Campo.",
+        "funFact": "The tortilla debate is real, and it all comes down to onions.",
         "cities": [
             {
                 "name": "Madrid",
@@ -16,6 +19,24 @@
                 "latitude": 41.3784,
                 "longitude": 2.1924,
                 "pinSize": 1
+            },
+            {
+                "name": "Sevilla",
+                "latitude": 37.3886,
+                "longitude": 5.9823,
+                "pinSize": 1
+            },
+            {
+                "name": "Toledo",
+                "latitude": 39.8628,
+                "longitude": 4.0273,
+                "pinSize": 1
+            },
+            {
+                "name": "Segovia",
+                "latitude": 40.9481,
+                "longitude": 4.1182,
+                "pinSize": 1
             }
         ]
     },
@@ -24,6 +45,9 @@
         "latitude": 46.6034,
         "longitude": 1.8883,
         "pinSize": 2,
+        "favoriteFood": "Canelés",
+        "mustSee": "Les catacombs de Paris, followed by Père-Lachaise. Eerie, unusual, and beautiful.",
+        "funFact": "Disneyland is just a 45 min train ride away!",
         "cities": [
             {
                 "name": "Paris",
@@ -38,6 +62,9 @@
         "latitude": 52.9550,
         "longitude": -1.5321,
         "pinSize": 2,
+        "favoriteFood": "Bath buns",
+        "mustSee": "The Jurassic Coast. Sharp cliffs, gentle swaying grass, and the freshest air.",
+        "funFact": "Roman ruins are everywhere in London.",
         "cities": [
             {
                 "name": "London",
@@ -82,11 +109,20 @@
         "latitude": 51.1657,
         "longitude": 10.4515,
         "pinSize": 2,
+        "favoriteFood": "Nürnberger Rostbratwurst",
+        "mustSee": "Neuschwanstein. Some hate it, some love it. I say learn the story and decide for yourself!",
+        "funFact": "Some municipalities enforce a dog tax.",
         "cities": [
             {
                 "name": "Munich",
                 "latitude": 48.1351,
                 "longitude": 11.5820,
+                "pinSize": 1
+            },
+            {
+                "name": "Nuremberg",
+                "latitude": 49.4521,
+                "longitude": 11.0767,
                 "pinSize": 1
             }
         ]
@@ -96,11 +132,20 @@
         "latitude": 47.5162,
         "longitude": 13.3777,
         "pinSize": 2,
+        "favoriteFood": "Apfelstrudel",
+        "mustSee": "Kunsthistorisches Museum Wien. The building itself is the greatest work of art.",
+        "funFact": "Cafe culture is a whole experience!",
         "cities": [
             {
                 "name": "Vienna",
                 "latitude": 48.2082,
                 "longitude": 16.3738,
+                "pinSize": 1
+            },
+            {
+                "name": "Salzburg",
+                "latitude": 47.8095,
+                "longitude": 13.0550,
                 "pinSize": 1
             }
         ]
@@ -110,6 +155,9 @@
         "latitude": 37.0902,
         "longitude": -95.7129,
         "pinSize": 2,
+        "favoriteFood": "Key lime pie",
+        "mustSee": "The CA coast? The Smithsonian museums? Plenty to choose from!",
+        "funFact": "Driving habits change dramatically across states.",
         "cities": [
             {
                 "name": "New York",
@@ -172,6 +220,9 @@
         "latitude": 18.2208,
         "longitude": -66.5901,
         "pinSize": 2,
+        "favoriteFood": "Mofongo",
+        "mustSee": "Cueva del Indo. Breathtaking. Indescribable. Not for the claustrophobic.",
+        "funFact": "There are 17 species of coquí, and they hatch as tiny frogs (no tadpoles)!",
         "cities": [
             {
                 "name": "San Juan",
@@ -186,6 +237,9 @@
         "latitude": 23.6345,
         "longitude": -102.5528,
         "pinSize": 2,
+        "favoriteFood": "Ceviche de pescado",
+        "mustSee": "Whale sharks in the Gulf of Mexico, specifically in summer.",
+        "funFact": "The Mesoamerican Barrier Reef is the 2nd largest in the world!",
         "cities": [
             {
                 "name": "Cancún",
