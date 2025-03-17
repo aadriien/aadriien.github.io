@@ -1129,13 +1129,13 @@ main {
   .timeline-section h3 {
     color: var(--muted-rose);
     text-transform: none;
-    font-size: var(--fs-3);
+    font-size: var(--fs-4);
     font-family: monospace;
   }
 
   .timeline-section h4 {
     text-transform: none;
-    font-size: var(--fs-4);
+    font-size: var(--fs-5);
     font-family: monospace;
   }
   
@@ -1469,7 +1469,11 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .info-content .name { margin-bottom: 15px; }
 
-  .info-content .title { padding: 5px 18px; }
+  .info-content .title { 
+      padding: 5px 18px; 
+      color: var(--muted-rose);
+      font-family: monospace;
+  }
 
   .info_more-btn {
     top: -30px;

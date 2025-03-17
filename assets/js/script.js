@@ -332,18 +332,61 @@ function populatePlacesPage() {
                 const mustSeeList = document.createElement("ol");
                 mustSeeList.classList.add("timeline-list");
 
-                const mustSeeItem = document.createElement("li");
-                mustSeeItem.classList.add("timeline-item");
-                const mustSeeItemTitle = document.createElement("h4");
-                mustSeeItemTitle.classList.add("h4", "timeline-item-title");
-                mustSeeItemTitle.textContent = country.mustSee;
+                country.mustSee.forEach(site => {
+                    const mustSeeItem = document.createElement("li");
+                    mustSeeItem.classList.add("timeline-item");
 
-                mustSeeItem.appendChild(mustSeeItemTitle);
-                mustSeeList.appendChild(mustSeeItem);
+                    const mustSeeItemTitle = document.createElement("h4");
+                    mustSeeItemTitle.classList.add("h4", "timeline-item-title");
+                    mustSeeItemTitle.textContent = site;
+
+                    mustSeeItem.appendChild(mustSeeItemTitle);
+                    mustSeeList.appendChild(mustSeeItem);
+                });
 
                 mustSeeSection.appendChild(mustSeeTitleWrapper);
                 mustSeeSection.appendChild(mustSeeList);
                 timelineSection.appendChild(mustSeeSection);
+
+
+                // Timeline for Cool & Unusual
+                const coolUnusualSection = document.createElement("div");
+                coolUnusualSection.classList.add("timeline-section");
+
+                const coolUnusualTitleWrapper = document.createElement("div");
+                coolUnusualTitleWrapper.classList.add("title-wrapper");
+
+                const coolUnusualIconBox = document.createElement("div");
+                coolUnusualIconBox.classList.add("icon-box");
+                coolUnusualIconBox.innerHTML = `<ion-icon name="eye-outline"></ion-icon>`; // Change the icon as needed
+
+                const coolUnusualTitle = document.createElement("h3");
+                coolUnusualTitle.classList.add("h3");
+                coolUnusualTitle.textContent = "assert cool() && unusual();";
+
+                coolUnusualTitleWrapper.appendChild(coolUnusualIconBox);
+                coolUnusualTitleWrapper.appendChild(coolUnusualTitle);
+
+                const coolUnusualList = document.createElement("ol");
+                coolUnusualList.classList.add("timeline-list");
+
+                country.coolUnusual.forEach(site => {
+                    const coolUnusualItem = document.createElement("li");
+                    coolUnusualItem.classList.add("timeline-item");
+
+                    const coolUnusualItemTitle = document.createElement("h4");
+                    coolUnusualItemTitle.classList.add("h4", "timeline-item-title");
+                    coolUnusualItemTitle.textContent = site;
+
+                    coolUnusualItem.appendChild(coolUnusualItemTitle);
+                    coolUnusualList.appendChild(coolUnusualItem);
+                });
+
+                coolUnusualSection.appendChild(coolUnusualTitleWrapper);
+                coolUnusualSection.appendChild(coolUnusualList);
+                timelineSection.appendChild(coolUnusualSection);
+
+                
 
                 // Timeline for Fun Fact
                 const funFactSection = document.createElement("div");
