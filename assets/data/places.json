@@ -4,6 +4,10 @@
         "latitude": 47.5162,
         "longitude": 13.3777,
         "pinSize": 2,
+        "image": {
+            "src": "assets/images/places-banner-imgs/austria.png",
+            "alt": "Austria flag"
+        },
         "favoriteFood": [
             "Apfelstrudel"
         ],
@@ -39,6 +43,10 @@
         "latitude": 46.6034,
         "longitude": 1.8883,
         "pinSize": 2,
+        "image": {
+            "src": "assets/images/places-banner-imgs/france.png",
+            "alt": "France flag"
+        },
         "favoriteFood": [
             "Canelés"
         ],
@@ -74,6 +82,10 @@
         "latitude": 51.1657,
         "longitude": 10.4515,
         "pinSize": 2,
+        "image": {
+            "src": "assets/images/places-banner-imgs/germany.png",
+            "alt": "Germany flag"
+        },
         "favoriteFood": [
             "Nürnberger Rostbratwurst"
         ],
@@ -109,6 +121,10 @@
         "latitude": 23.6345,
         "longitude": -102.5528,
         "pinSize": 2,
+        "image": {
+            "src": "assets/images/places-banner-imgs/mexico.png",
+            "alt": "Mexico flag"
+        },
         "favoriteFood": [
             "Ceviche de pescado"
         ],
@@ -142,6 +158,10 @@
         "latitude": 18.2208,
         "longitude": -66.5901,
         "pinSize": 2,
+        "image": {
+            "src": "assets/images/places-banner-imgs/puerto-rico.png",
+            "alt": "Puerto Rico flag"
+        },
         "favoriteFood": [
             "Mofongo"
         ],
@@ -189,6 +209,10 @@
         "latitude": 40.4637,
         "longitude": -3.7492,
         "pinSize": 2,
+        "image": {
+            "src": "assets/images/places-banner-imgs/spain.png",
+            "alt": "Spain flag"
+        },
         "favoriteFood": [
             "Patatas bravas"
         ],
@@ -248,6 +272,10 @@
         "latitude": 52.9550,
         "longitude": -1.5321,
         "pinSize": 2,
+        "image": {
+            "src": "assets/images/places-banner-imgs/united-kingdom.png",
+            "alt": "United Kingdom flag"
+        },
         "favoriteFood": [
             "Bath buns"
         ],
@@ -321,6 +349,10 @@
         "latitude": 37.0902,
         "longitude": -95.7129,
         "pinSize": 2,
+        "image": {
+            "src": "assets/images/places-banner-imgs/united-states.png",
+            "alt": "United States flag"
+        },
         "favoriteFood": [
             "Key lime pie"
         ],

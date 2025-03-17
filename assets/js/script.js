@@ -208,11 +208,31 @@ function populatePlacesPage() {
             const placesList = document.querySelector(".places-posts-list"); // Target the <ul> container
 
             const sections = [
-                { key: "cities", title: "print(cities_i_loved)", icon: "location-outline" },
-                { key: "favoriteFood", title: "let favorite_food =", icon: "restaurant-outline" },
-                { key: "mustSee", title: "#include 'must_see.h'", icon: "star-outline" },
-                { key: "coolUnusual", title: "assert cool() && unusual();", icon: "eye-outline" },
-                { key: "funFact", title: "return fun_fact;", icon: "bulb-outline" }
+                { 
+                    key: "cities", 
+                    title: "print(cities_i_loved)", 
+                    icon: "location-outline" 
+                },
+                { 
+                    key: "favoriteFood", 
+                    title: "let favorite_food =", 
+                    icon: "pizza-outline" 
+                },
+                { 
+                    key: "mustSee", 
+                    title: "#include 'must_see.h'", 
+                    icon: "star-outline" 
+                },
+                { 
+                    key: "coolUnusual", 
+                    title: "assert cool() && unusual();", 
+                    icon: "eye-outline" 
+                },
+                { 
+                    key: "funFact", 
+                    title: "return fun_fact;", 
+                    icon: "bulb-outline" 
+                }
             ];
 
             data.forEach(country => {
@@ -224,24 +244,30 @@ function populatePlacesPage() {
                 const cardContent = document.createElement("div");
                 cardContent.classList.add("card-content", "toggle-card");
 
-                // Create places content
-                const placesContent = document.createElement("div");
-                placesContent.classList.add("places-content");
+                // Create figure element for image banner
+                const figure = document.createElement("figure");
+                figure.classList.add("places-banner-box");
 
-                // Meta category (e.g., Continent or Category)
-                const placesMeta = document.createElement("div");
-                placesMeta.classList.add("places-meta");
-                placesMeta.innerHTML = `<p class="places-category">Europe</p>`; // Replace with actual category if needed
+                const img = document.createElement("img");
+                img.src = country.image.src;  // Assuming JSON has `image.src`
+                img.alt = country.image.alt;  // Assuming JSON has `image.alt`
+                img.loading = "lazy";
 
                 // Country Title
                 const title = document.createElement("h3");
                 title.classList.add("h3", "places-item-title");
                 title.textContent = country.name;
 
-                // Append elements to places content
-                placesContent.appendChild(placesMeta);
-                placesContent.appendChild(title);
-                cardContent.appendChild(placesContent);
+                // Add the meta and title above the image
+                figure.appendChild(title);
+                figure.appendChild(img);
+
+                // Append the figure to the card content
+                cardContent.appendChild(figure);
+                
+                // Create places content
+                const placesContent = document.createElement("div");
+                placesContent.classList.add("places-content");
 
                 // Timeline Container (Hidden by Default)
                 const timelineContainer = document.createElement("div");
