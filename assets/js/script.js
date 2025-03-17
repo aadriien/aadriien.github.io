@@ -255,7 +255,7 @@ function populatePlacesPage() {
 
                 const citiesTitle = document.createElement("h3");
                 citiesTitle.classList.add("h3");
-                citiesTitle.textContent = "Cities";
+                citiesTitle.textContent = "print(cities_i_loved)";
 
                 citiesTitleWrapper.appendChild(citiesIconBox);
                 citiesTitleWrapper.appendChild(citiesTitle);
@@ -291,7 +291,7 @@ function populatePlacesPage() {
 
                 const foodTitle = document.createElement("h3");
                 foodTitle.classList.add("h3");
-                foodTitle.textContent = "Favorite Food";
+                foodTitle.textContent = "let favorite_food =";
 
                 foodTitleWrapper.appendChild(foodIconBox);
                 foodTitleWrapper.appendChild(foodTitle);
@@ -324,7 +324,7 @@ function populatePlacesPage() {
 
                 const mustSeeTitle = document.createElement("h3");
                 mustSeeTitle.classList.add("h3");
-                mustSeeTitle.textContent = "Must See";
+                mustSeeTitle.textContent = "#include 'must_see.h'";
 
                 mustSeeTitleWrapper.appendChild(mustSeeIconBox);
                 mustSeeTitleWrapper.appendChild(mustSeeTitle);
@@ -357,7 +357,7 @@ function populatePlacesPage() {
 
                 const funFactTitle = document.createElement("h3");
                 funFactTitle.classList.add("h3");
-                funFactTitle.textContent = "Fun Fact";
+                funFactTitle.textContent = "return fun_fact;";
 
                 funFactTitleWrapper.appendChild(funFactIconBox);
                 funFactTitleWrapper.appendChild(funFactTitle);

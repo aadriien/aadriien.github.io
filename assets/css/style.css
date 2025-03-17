@@ -1128,6 +1128,15 @@ main {
 
   .timeline-section h3 {
     color: var(--muted-rose);
+    text-transform: none;
+    font-size: var(--fs-3);
+    font-family: monospace;
+  }
+
+  .timeline-section h4 {
+    text-transform: none;
+    font-size: var(--fs-4);
+    font-family: monospace;
   }
   
   .title-wrapper {
