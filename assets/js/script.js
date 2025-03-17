@@ -207,6 +207,14 @@ function populatePlacesPage() {
         .then(data => {
             const placesList = document.querySelector(".places-posts-list"); // Target the <ul> container
 
+            const sections = [
+                { key: "cities", title: "print(cities_i_loved)", icon: "location-outline" },
+                { key: "favoriteFood", title: "let favorite_food =", icon: "restaurant-outline" },
+                { key: "mustSee", title: "#include 'must_see.h'", icon: "star-outline" },
+                { key: "coolUnusual", title: "assert cool() && unusual();", icon: "eye-outline" },
+                { key: "funFact", title: "return fun_fact;", icon: "bulb-outline" }
+            ];
+
             data.forEach(country => {
                 // Create list item
                 const listItem = document.createElement("li");
@@ -238,187 +246,52 @@ function populatePlacesPage() {
                 // Timeline Container (Hidden by Default)
                 const timelineContainer = document.createElement("div");
                 timelineContainer.classList.add("timeline-container");
-                timelineContainer.style.display = "none"; // Initially hidden
+                timelineContainer.style.display = "none";
 
                 const timelineSection = document.createElement("section");
                 timelineSection.classList.add("timeline");
 
-                // Timeline for Cities
-                const citiesSection = document.createElement("div");
-                citiesSection.classList.add("timeline-section");
-                const citiesTitleWrapper = document.createElement("div");
-                citiesTitleWrapper.classList.add("title-wrapper");
+                // Now loop through sections to populate timeline dynamically
+                sections.forEach(section => {
+                    const sectionDiv = document.createElement("div");
+                    sectionDiv.classList.add("timeline-section");
 
-                const citiesIconBox = document.createElement("div");
-                citiesIconBox.classList.add("icon-box");
-                citiesIconBox.innerHTML = `<ion-icon name="location-outline"></ion-icon>`; // Change the icon as needed
+                    const titleWrapper = document.createElement("div");
+                    titleWrapper.classList.add("title-wrapper");
 
-                const citiesTitle = document.createElement("h3");
-                citiesTitle.classList.add("h3");
-                citiesTitle.textContent = "print(cities_i_loved)";
+                    const iconBox = document.createElement("div");
+                    iconBox.classList.add("icon-box");
+                    iconBox.innerHTML = `<ion-icon name="${section.icon}"></ion-icon>`;
 
-                citiesTitleWrapper.appendChild(citiesIconBox);
-                citiesTitleWrapper.appendChild(citiesTitle);
+                    const sectionTitle = document.createElement("h3");
+                    sectionTitle.classList.add("h3");
+                    sectionTitle.textContent = section.title;
 
-                const citiesList = document.createElement("ol");
-                citiesList.classList.add("timeline-list");
+                    titleWrapper.appendChild(iconBox);
+                    titleWrapper.appendChild(sectionTitle);
 
-                country.cities.forEach(city => {
-                    const cityItem = document.createElement("li");
-                    cityItem.classList.add("timeline-item");
+                    const list = document.createElement("ol");
+                    list.classList.add("timeline-list");
 
-                    const cityItemTitle = document.createElement("h4");
-                    cityItemTitle.classList.add("h4", "timeline-item-title");
-                    cityItemTitle.textContent = city.name;
+                    // Assuming `country[section.key]` contains an array of items
+                    country[section.key].forEach(item => {
+                        const listItem = document.createElement("li");
+                        listItem.classList.add("timeline-item");
 
-                    cityItem.appendChild(cityItemTitle);
-                    citiesList.appendChild(cityItem);
+                        const listItemTitle = document.createElement("h4");
+                        listItemTitle.classList.add("h4", "timeline-item-title");
+
+                        // Handle objects (cities) & regular strings (other fields)
+                        listItemTitle.textContent = typeof item === "object" ? item.name : item;
+
+                        listItem.appendChild(listItemTitle);
+                        list.appendChild(listItem);
+                    });
+
+                    sectionDiv.appendChild(titleWrapper);
+                    sectionDiv.appendChild(list);
+                    timelineSection.appendChild(sectionDiv);
                 });
-
-                citiesSection.appendChild(citiesTitleWrapper);
-                citiesSection.appendChild(citiesList);
-                timelineSection.appendChild(citiesSection);
-
-                // Timeline for Favorite Food
-                const foodSection = document.createElement("div");
-                foodSection.classList.add("timeline-section");
-                const foodTitleWrapper = document.createElement("div");
-                foodTitleWrapper.classList.add("title-wrapper");
-
-                const foodIconBox = document.createElement("div");
-                foodIconBox.classList.add("icon-box");
-                foodIconBox.innerHTML = `<ion-icon name="pizza-outline"></ion-icon>`; // Change the icon as needed
-
-                const foodTitle = document.createElement("h3");
-                foodTitle.classList.add("h3");
-                foodTitle.textContent = "let favorite_food =";
-
-                foodTitleWrapper.appendChild(foodIconBox);
-                foodTitleWrapper.appendChild(foodTitle);
-
-                const foodList = document.createElement("ol");
-                foodList.classList.add("timeline-list");
-
-                const foodItem = document.createElement("li");
-                foodItem.classList.add("timeline-item");
-                const foodItemTitle = document.createElement("h4");
-                foodItemTitle.classList.add("h4", "timeline-item-title");
-                foodItemTitle.textContent = country.favoriteFood;
-
-                foodItem.appendChild(foodItemTitle);
-                foodList.appendChild(foodItem);
-
-                foodSection.appendChild(foodTitleWrapper);
-                foodSection.appendChild(foodList);
-                timelineSection.appendChild(foodSection);
-
-                // Timeline for Must See
-                const mustSeeSection = document.createElement("div");
-                mustSeeSection.classList.add("timeline-section");
-                const mustSeeTitleWrapper = document.createElement("div");
-                mustSeeTitleWrapper.classList.add("title-wrapper");
-
-                const mustSeeIconBox = document.createElement("div");
-                mustSeeIconBox.classList.add("icon-box");
-                mustSeeIconBox.innerHTML = `<ion-icon name="star-outline"></ion-icon>`; // Change the icon as needed
-
-                const mustSeeTitle = document.createElement("h3");
-                mustSeeTitle.classList.add("h3");
-                mustSeeTitle.textContent = "#include 'must_see.h'";
-
-                mustSeeTitleWrapper.appendChild(mustSeeIconBox);
-                mustSeeTitleWrapper.appendChild(mustSeeTitle);
-
-                const mustSeeList = document.createElement("ol");
-                mustSeeList.classList.add("timeline-list");
-
-                country.mustSee.forEach(site => {
-                    const mustSeeItem = document.createElement("li");
-                    mustSeeItem.classList.add("timeline-item");
-
-                    const mustSeeItemTitle = document.createElement("h4");
-                    mustSeeItemTitle.classList.add("h4", "timeline-item-title");
-                    mustSeeItemTitle.textContent = site;
-
-                    mustSeeItem.appendChild(mustSeeItemTitle);
-                    mustSeeList.appendChild(mustSeeItem);
-                });
-
-                mustSeeSection.appendChild(mustSeeTitleWrapper);
-                mustSeeSection.appendChild(mustSeeList);
-                timelineSection.appendChild(mustSeeSection);
-
-
-                // Timeline for Cool & Unusual
-                const coolUnusualSection = document.createElement("div");
-                coolUnusualSection.classList.add("timeline-section");
-
-                const coolUnusualTitleWrapper = document.createElement("div");
-                coolUnusualTitleWrapper.classList.add("title-wrapper");
-
-                const coolUnusualIconBox = document.createElement("div");
-                coolUnusualIconBox.classList.add("icon-box");
-                coolUnusualIconBox.innerHTML = `<ion-icon name="eye-outline"></ion-icon>`; // Change the icon as needed
-
-                const coolUnusualTitle = document.createElement("h3");
-                coolUnusualTitle.classList.add("h3");
-                coolUnusualTitle.textContent = "assert cool() && unusual();";
-
-                coolUnusualTitleWrapper.appendChild(coolUnusualIconBox);
-                coolUnusualTitleWrapper.appendChild(coolUnusualTitle);
-
-                const coolUnusualList = document.createElement("ol");
-                coolUnusualList.classList.add("timeline-list");
-
-                country.coolUnusual.forEach(site => {
-                    const coolUnusualItem = document.createElement("li");
-                    coolUnusualItem.classList.add("timeline-item");
-
-                    const coolUnusualItemTitle = document.createElement("h4");
-                    coolUnusualItemTitle.classList.add("h4", "timeline-item-title");
-                    coolUnusualItemTitle.textContent = site;
-
-                    coolUnusualItem.appendChild(coolUnusualItemTitle);
-                    coolUnusualList.appendChild(coolUnusualItem);
-                });
-
-                coolUnusualSection.appendChild(coolUnusualTitleWrapper);
-                coolUnusualSection.appendChild(coolUnusualList);
-                timelineSection.appendChild(coolUnusualSection);
-
-                
-                // Timeline for Fun Fact
-                const funFactSection = document.createElement("div");
-                funFactSection.classList.add("timeline-section");
-                const funFactTitleWrapper = document.createElement("div");
-                funFactTitleWrapper.classList.add("title-wrapper");
-
-                const funFactIconBox = document.createElement("div");
-                funFactIconBox.classList.add("icon-box");
-                funFactIconBox.innerHTML = `<ion-icon name="bulb-outline"></ion-icon>`; // Change the icon as needed
-
-                const funFactTitle = document.createElement("h3");
-                funFactTitle.classList.add("h3");
-                funFactTitle.textContent = "return fun_fact;";
-
-                funFactTitleWrapper.appendChild(funFactIconBox);
-                funFactTitleWrapper.appendChild(funFactTitle);
-
-                const funFactList = document.createElement("ol");
-                funFactList.classList.add("timeline-list");
-
-                const funFactItem = document.createElement("li");
-                funFactItem.classList.add("timeline-item");
-                const funFactItemTitle = document.createElement("h4");
-                funFactItemTitle.classList.add("h4", "timeline-item-title");
-                funFactItemTitle.textContent = country.funFact;
-
-                funFactItem.appendChild(funFactItemTitle);
-                funFactList.appendChild(funFactItem);
-
-                funFactSection.appendChild(funFactTitleWrapper);
-                funFactSection.appendChild(funFactList);
-                timelineSection.appendChild(funFactSection);
 
                 // Append timeline section to container
                 timelineContainer.appendChild(timelineSection);
@@ -428,13 +301,13 @@ function populatePlacesPage() {
 
                 // Add click event to toggle timeline visibility
                 cardContent.addEventListener("click", (event) => {
-                    event.preventDefault(); // Prevent page scroll to top
+                    // Prevent page scroll to top
+                    event.preventDefault(); 
 
-                    // Toggle display of the timeline container
                     if (timelineContainer.style.display === "none") {
-                        timelineContainer.style.display = "block"; // Show the timeline
+                        timelineContainer.style.display = "block"; // Show 
                     } else {
-                        timelineContainer.style.display = "none"; // Hide the timeline
+                        timelineContainer.style.display = "none"; // Hide
                     }
                 });
             });
