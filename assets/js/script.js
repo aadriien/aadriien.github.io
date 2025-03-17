@@ -242,7 +242,7 @@ function populatePlacesPage() {
 
                 // Create card container
                 const cardContent = document.createElement("div");
-                cardContent.classList.add("card-content", "toggle-card");
+                cardContent.classList.add("card-content");
 
                 // Create figure element for image banner
                 const figure = document.createElement("figure");
@@ -335,6 +335,7 @@ function populatePlacesPage() {
                     } else {
                         timelineContainer.style.display = "none"; // Hide
                     }
+                    cardContent.classList.toggle("clicked");
                 });
             });
 
