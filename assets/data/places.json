@@ -5,7 +5,15 @@
         "longitude": 13.3777,
         "pinSize": 2,
         "favoriteFood": "Apfelstrudel",
-        "mustSee": "Kunsthistorisches Museum Wien. The building itself is the greatest work of art.",
+        "mustSee": [
+            "Kunsthistorisches Museum",
+            "Schönbrunn Palace",
+            "Austrian National Library"
+        ],
+        "coolUnusual": [
+            "Peterskirche organ concerts",
+            "Vollpension Cafe"
+        ],
         "funFact": "Cafe culture is a whole experience!",
         "cities": [
             {
@@ -28,9 +36,23 @@
         "longitude": 1.8883,
         "pinSize": 2,
         "favoriteFood": "Canelés",
-        "mustSee": "Les catacombs de Paris, followed by Père-Lachaise. Eerie, unusual, and beautiful.",
+        "mustSee": [
+            "Palais Garnier (take a tour)",
+            "Sacré-Coeur Basilica",
+            "Saint-Eustache"
+        ],
+        "coolUnusual": [
+            "Les Catacombes de Paris",
+            "Père-Lachaise Cemetery"
+        ],
         "funFact": "Disneyland is just a 45 min train ride away!",
         "cities": [
+            {
+                "name": "Marne-la-Vallée",
+                "latitude": 48.8704,
+                "longitude": 2.7828,
+                "pinSize": 1
+            },
             {
                 "name": "Paris",
                 "latitude": 48.8566,
@@ -45,7 +67,15 @@
         "longitude": 10.4515,
         "pinSize": 2,
         "favoriteFood": "Nürnberger Rostbratwurst",
-        "mustSee": "Neuschwanstein. Some hate it, some love it. I say learn the story and decide for yourself!",
+        "mustSee": [
+            "Neuschwanstein (learn the story)",
+            "Rathaus-Glockenspiel",
+            "Peterskirche"
+        ],
+        "coolUnusual": [
+            "Deutsche Bahn Museum",
+            "Nuremberg Toy Museum"
+        ],
         "funFact": "Some municipalities enforce a dog tax.",
         "cities": [
             {
@@ -68,13 +98,25 @@
         "longitude": -102.5528,
         "pinSize": 2,
         "favoriteFood": "Ceviche de pescado",
-        "mustSee": "Whale sharks in the Gulf of Mexico, specifically in summer.",
+        "mustSee": [
+            "Whale sharks in the Gulf of Mexico",
+            "The Great Mayan Reef"
+        ],
+        "coolUnusual": [
+            "Turtle nests along the Riviera Maya"
+        ],
         "funFact": "The Mesoamerican Barrier Reef is the 2nd largest in the world!",
         "cities": [
             {
                 "name": "Cancún",
                 "latitude": 21.1743,
                 "longitude": -86.8466,
+                "pinSize": 1
+            },
+            {
+                "name": "Puerto Morelos",
+                "latitude": 20.8482,
+                "longitude": -86.8761,
                 "pinSize": 1
             }
         ]
@@ -85,9 +127,35 @@
         "longitude": -66.5901,
         "pinSize": 2,
         "favoriteFood": "Mofongo",
-        "mustSee": "Cueva del Indio. Breathtaking. Indescribable. Not for the claustrophobic.",
-        "funFact": "There are 17 species of coquí, and they hatch as tiny frogs (no tadpoles)!",
+        "mustSee": [
+            "Cueva del Indio",
+            "Castillo San Felipe del Morro",
+            "Mangrove forests"
+        ],
+        "coolUnusual": [
+            "Cuevas Arenales",
+            "The Poet's Passage"
+        ],
+        "funFact": "There are 17 known species of coquí, and they hatch as tiny frogs.. no tadpoles!",
         "cities": [
+            {
+                "name": "Arecibo",
+                "latitude": 18.4720,
+                "longitude": -66.7160,
+                "pinSize": 1
+            },
+            {
+                "name": "Caguas",
+                "latitude": 18.2341,
+                "longitude": -66.0485,
+                "pinSize": 1
+            },
+            {
+                "name": "Fajardo",
+                "latitude": 18.3258,
+                "longitude": -65.6524,
+                "pinSize": 1
+            },
             {
                 "name": "San Juan",
                 "latitude": 18.4655,
@@ -102,9 +170,23 @@
         "longitude": -3.7492,
         "pinSize": 2,
         "favoriteFood": "Patatas bravas",
-        "mustSee": "El Retiro (go find the peacocks)! For something more active, Casa de Campo.",
+        "mustSee": [
+            "El Retiro (find the peacocks)",
+            "Casa de Campo",
+            "Royal Alcázar of Sevilla"
+        ],
+        "coolUnusual": [
+            "Sorolla Museum",
+            "Catedral Primada de Toledo"
+        ],
         "funFact": "The tortilla debate is real, and it all comes down to onions.",
         "cities": [
+            {
+                "name": "Ávila",
+                "latitude": 40.6572,
+                "longitude": -4.6995,
+                "pinSize": 1
+            },
             {
                 "name": "Barcelona",
                 "latitude": 41.3784,
@@ -143,9 +225,32 @@
         "longitude": -1.5321,
         "pinSize": 2,
         "favoriteFood": "Bath buns",
-        "mustSee": "The Jurassic Coast. Sharp cliffs, gentle swaying grass, and the freshest air.",
+        "mustSee": [
+            "Jurassic Coast",
+            "The Wallace Collection",
+            "Kew Gardens",
+            "Maritime Greenwich"
+        ],
+        "coolUnusual": [
+            "House of MinaLima",
+            "Mail Rail at The Postal Museum",
+            "Ceremony of the Keys",
+            "London Museum (look for the plush toy rats in historic clothes)"
+        ],
         "funFact": "Roman ruins are everywhere in London.",
         "cities": [
+            {
+                "name": "Brighton",
+                "latitude": 50.8278,
+                "longitude": -0.1528,
+                "pinSize": 1
+            },
+            {
+                "name": "Canterbury",
+                "latitude": 51.2799,
+                "longitude": 1.0800,
+                "pinSize": 1
+            },
             {
                 "name": "Cardiff",
                 "latitude": 51.4816,
@@ -181,6 +286,18 @@
                 "latitude": 53.4808,
                 "longitude": -2.2426,
                 "pinSize": 1
+            },
+            {
+                "name": "Salisbury",
+                "latitude": 51.0687,
+                "longitude": -1.7944,
+                "pinSize": 1
+            },
+            {
+                "name": "York",
+                "latitude": 53.9583,
+                "longitude": -1.0803,
+                "pinSize": 1
             }
         ]
     },
@@ -190,7 +307,15 @@
         "longitude": -95.7129,
         "pinSize": 2,
         "favoriteFood": "Key lime pie",
-        "mustSee": "The CA coast? The Smithsonian museums? Plenty to choose from!",
+        "mustSee": [
+            "National parks",
+            "Pacific Coast Highway",
+            "Smithsonian museums"
+        ],
+        "coolUnusual": [
+            "The Tenement Museum",
+            "Downtown Salem (not for Halloween)"
+        ],
         "funFact": "Driving habits change dramatically across states.",
         "cities": [
             {
@@ -218,15 +343,15 @@
                 "pinSize": 1
             },
             {
-                "name": "Orlando",
-                "latitude": 28.5383,
-                "longitude": -81.3792,
-                "pinSize": 1
-            },
-            {
                 "name": "Philadelphia",
                 "latitude": 39.9526,
                 "longitude": -75.1652,
+                "pinSize": 1
+            },
+            {
+                "name": "Provincetown",
+                "latitude": 42.058,
+                "longitude": -70.1790,
                 "pinSize": 1
             },
             {

@@ -387,7 +387,6 @@ function populatePlacesPage() {
                 timelineSection.appendChild(coolUnusualSection);
 
                 
-
                 // Timeline for Fun Fact
                 const funFactSection = document.createElement("div");
                 funFactSection.classList.add("timeline-section");

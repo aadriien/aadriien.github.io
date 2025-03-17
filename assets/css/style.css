@@ -1113,7 +1113,7 @@ main {
   }
   
   .timeline-container.open {
-    max-height: 900px; /* Adjust based on content */
+    max-height: 1500px; /* Adjust based on content */
     padding: 10px;
   }
 
