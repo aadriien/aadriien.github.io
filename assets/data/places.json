@@ -1,41 +1,23 @@
 [
     {
-        "name": "Spain",
-        "latitude": 40.4637,
-        "longitude": -3.7492,
+        "name": "Austria",
+        "latitude": 47.5162,
+        "longitude": 13.3777,
         "pinSize": 2,
-        "favoriteFood": "Patatas bravas",
-        "mustSee": "El Retiro (go find the peacocks)! For something more active, Casa de Campo.",
-        "funFact": "The tortilla debate is real, and it all comes down to onions.",
+        "favoriteFood": "Apfelstrudel",
+        "mustSee": "Kunsthistorisches Museum Wien. The building itself is the greatest work of art.",
+        "funFact": "Cafe culture is a whole experience!",
         "cities": [
             {
-                "name": "Madrid",
-                "latitude": 40.4168,
-                "longitude": -3.7038,
+                "name": "Salzburg",
+                "latitude": 47.8095,
+                "longitude": 13.0550,
                 "pinSize": 1
             },
             {
-                "name": "Barcelona",
-                "latitude": 41.3784,
-                "longitude": 2.1924,
-                "pinSize": 1
-            },
-            {
-                "name": "Sevilla",
-                "latitude": 37.3886,
-                "longitude": 5.9823,
-                "pinSize": 1
-            },
-            {
-                "name": "Toledo",
-                "latitude": 39.8628,
-                "longitude": 4.0273,
-                "pinSize": 1
-            },
-            {
-                "name": "Segovia",
-                "latitude": 40.9481,
-                "longitude": 4.1182,
+                "name": "Vienna",
+                "latitude": 48.2082,
+                "longitude": 16.3738,
                 "pinSize": 1
             }
         ]
@@ -53,53 +35,6 @@
                 "name": "Paris",
                 "latitude": 48.8566,
                 "longitude": 2.3522,
-                "pinSize": 1
-            }
-        ]
-    },    
-    {
-        "name": "United Kingdom",
-        "latitude": 52.9550,
-        "longitude": -1.5321,
-        "pinSize": 2,
-        "favoriteFood": "Bath buns",
-        "mustSee": "The Jurassic Coast. Sharp cliffs, gentle swaying grass, and the freshest air.",
-        "funFact": "Roman ruins are everywhere in London.",
-        "cities": [
-            {
-                "name": "London",
-                "latitude": 51.5074,
-                "longitude": -0.1278,
-                "pinSize": 1
-            },
-            {
-                "name": "Edinburgh",
-                "latitude": 55.9533,
-                "longitude": -3.1883,
-                "pinSize": 1
-            },
-            {
-                "name": "Glasgow",
-                "latitude": 55.8642,
-                "longitude": -4.2518,
-                "pinSize": 1
-            },
-            {
-                "name": "Manchester",
-                "latitude": 53.4808,
-                "longitude": -2.2426,
-                "pinSize": 1
-            },
-            {
-                "name": "Liverpool",
-                "latitude": 53.4084,
-                "longitude": -2.9916,
-                "pinSize": 1
-            },
-            {
-                "name": "Cardiff",
-                "latitude": 51.4816,
-                "longitude": -3.1791,
                 "pinSize": 1
             }
         ]
@@ -128,24 +63,123 @@
         ]
     },
     {
-        "name": "Austria",
-        "latitude": 47.5162,
-        "longitude": 13.3777,
+        "name": "Mexico",
+        "latitude": 23.6345,
+        "longitude": -102.5528,
         "pinSize": 2,
-        "favoriteFood": "Apfelstrudel",
-        "mustSee": "Kunsthistorisches Museum Wien. The building itself is the greatest work of art.",
-        "funFact": "Cafe culture is a whole experience!",
+        "favoriteFood": "Ceviche de pescado",
+        "mustSee": "Whale sharks in the Gulf of Mexico, specifically in summer.",
+        "funFact": "The Mesoamerican Barrier Reef is the 2nd largest in the world!",
         "cities": [
             {
-                "name": "Vienna",
-                "latitude": 48.2082,
-                "longitude": 16.3738,
+                "name": "Cancún",
+                "latitude": 21.1743,
+                "longitude": -86.8466,
+                "pinSize": 1
+            }
+        ]
+    },
+    {
+        "name": "Puerto Rico",
+        "latitude": 18.2208,
+        "longitude": -66.5901,
+        "pinSize": 2,
+        "favoriteFood": "Mofongo",
+        "mustSee": "Cueva del Indio. Breathtaking. Indescribable. Not for the claustrophobic.",
+        "funFact": "There are 17 species of coquí, and they hatch as tiny frogs (no tadpoles)!",
+        "cities": [
+            {
+                "name": "San Juan",
+                "latitude": 18.4655,
+                "longitude": -66.1057,
+                "pinSize": 1
+            }
+        ]
+    },
+    {
+        "name": "Spain",
+        "latitude": 40.4637,
+        "longitude": -3.7492,
+        "pinSize": 2,
+        "favoriteFood": "Patatas bravas",
+        "mustSee": "El Retiro (go find the peacocks)! For something more active, Casa de Campo.",
+        "funFact": "The tortilla debate is real, and it all comes down to onions.",
+        "cities": [
+            {
+                "name": "Barcelona",
+                "latitude": 41.3784,
+                "longitude": 2.1924,
                 "pinSize": 1
             },
             {
-                "name": "Salzburg",
-                "latitude": 47.8095,
-                "longitude": 13.0550,
+                "name": "Madrid",
+                "latitude": 40.4168,
+                "longitude": -3.7038,
+                "pinSize": 1
+            },
+            {
+                "name": "Segovia",
+                "latitude": 40.9481,
+                "longitude": 4.1182,
+                "pinSize": 1
+            },
+            {
+                "name": "Sevilla",
+                "latitude": 37.3886,
+                "longitude": 5.9823,
+                "pinSize": 1
+            },
+            {
+                "name": "Toledo",
+                "latitude": 39.8628,
+                "longitude": 4.0273,
+                "pinSize": 1
+            }
+        ]
+    },
+    {
+        "name": "United Kingdom",
+        "latitude": 52.9550,
+        "longitude": -1.5321,
+        "pinSize": 2,
+        "favoriteFood": "Bath buns",
+        "mustSee": "The Jurassic Coast. Sharp cliffs, gentle swaying grass, and the freshest air.",
+        "funFact": "Roman ruins are everywhere in London.",
+        "cities": [
+            {
+                "name": "Cardiff",
+                "latitude": 51.4816,
+                "longitude": -3.1791,
+                "pinSize": 1
+            },
+            {
+                "name": "Edinburgh",
+                "latitude": 55.9533,
+                "longitude": -3.1883,
+                "pinSize": 1
+            },
+            {
+                "name": "Glasgow",
+                "latitude": 55.8642,
+                "longitude": -4.2518,
+                "pinSize": 1
+            },
+            {
+                "name": "Liverpool",
+                "latitude": 53.4084,
+                "longitude": -2.9916,
+                "pinSize": 1
+            },
+            {
+                "name": "London",
+                "latitude": 51.5074,
+                "longitude": -0.1278,
+                "pinSize": 1
+            },
+            {
+                "name": "Manchester",
+                "latitude": 53.4808,
+                "longitude": -2.2426,
                 "pinSize": 1
             }
         ]
@@ -160,27 +194,9 @@
         "funFact": "Driving habits change dramatically across states.",
         "cities": [
             {
-                "name": "New York",
-                "latitude": 40.7128,
-                "longitude": -74.0060,
-                "pinSize": 1
-            },
-            {
                 "name": "Boston",
                 "latitude": 42.3601,
                 "longitude": -71.0589,
-                "pinSize": 1
-            },
-            {
-                "name": "Washington DC",
-                "latitude": 38.9072,
-                "longitude": -77.0369,
-                "pinSize": 1
-            },
-            {
-                "name": "Richmond",
-                "latitude": 37.5407,
-                "longitude": -77.4360,
                 "pinSize": 1
             },
             {
@@ -190,15 +206,15 @@
                 "pinSize": 1
             },
             {
-                "name": "San Francisco",
-                "latitude": 37.7749,
-                "longitude": -122.4194,
-                "pinSize": 1
-            },
-            {
                 "name": "Los Angeles",
                 "latitude": 34.0522,
                 "longitude": -118.2437,
+                "pinSize": 1
+            },
+            {
+                "name": "New York",
+                "latitude": 40.7128,
+                "longitude": -74.0060,
                 "pinSize": 1
             },
             {
@@ -212,39 +228,23 @@
                 "latitude": 39.9526,
                 "longitude": -75.1652,
                 "pinSize": 1
-            }
-        ]
-    },
-    {
-        "name": "Puerto Rico",
-        "latitude": 18.2208,
-        "longitude": -66.5901,
-        "pinSize": 2,
-        "favoriteFood": "Mofongo",
-        "mustSee": "Cueva del Indo. Breathtaking. Indescribable. Not for the claustrophobic.",
-        "funFact": "There are 17 species of coquí, and they hatch as tiny frogs (no tadpoles)!",
-        "cities": [
+            },
             {
-                "name": "San Juan",
-                "latitude": 18.4655,
-                "longitude": -66.1057,
+                "name": "Richmond",
+                "latitude": 37.5407,
+                "longitude": -77.4360,
                 "pinSize": 1
-            }
-        ]
-    },
-    {
-        "name": "Mexico",
-        "latitude": 23.6345,
-        "longitude": -102.5528,
-        "pinSize": 2,
-        "favoriteFood": "Ceviche de pescado",
-        "mustSee": "Whale sharks in the Gulf of Mexico, specifically in summer.",
-        "funFact": "The Mesoamerican Barrier Reef is the 2nd largest in the world!",
-        "cities": [
+            },
             {
-                "name": "Cancún",
-                "latitude": 21.1743,
-                "longitude": -86.8466,
+                "name": "San Francisco",
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "pinSize": 1
+            },
+            {
+                "name": "Washington DC",
+                "latitude": 38.9072,
+                "longitude": -77.0369,
                 "pinSize": 1
             }
         ]
