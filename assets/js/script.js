@@ -183,7 +183,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "I'm Adrien, a data-driven software engineer with a passion for building. ", 
             "I care about generating impact, delighting users, leaning into cool ideas, and learning along the way. ",
             "\n\nMy approach to engineering is human-centered, so I hope you have as much fun exploring this site as I had creating it. ", 
-            "\n\nCheck out my projects, interact with the globe, and if you'd like to collaborate, be sure to reach out! "
+            "\n\nCheck out my projects, interact with the globe, and if you'd like to collaborate, be sure to reach out! ",
+            "\n\n -A "
         ];
         // Clear text initially
         const text = paragraph.innerText;
@@ -228,6 +229,106 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(typeEffect, 500); 
     }, 1000);
 });
+
+
+
+// Create nebula animation for about me page
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector(".nebula-container");
+    const canvas = container.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+
+    // Set canvas size to match the container size
+    canvas.width = container.clientWidth;
+    canvas.height = container.clientHeight;
+
+    const stars = [];
+
+    // Star class for twinkling effect
+    class Star {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2.25 + 0.25;  // More varied sizes
+            this.speedX = Math.random() * 0.5 - 0.25;
+            this.speedY = Math.random() * 0.5 - 0.25;
+            this.opacity = Math.random() * 0.6 + 0.4;  // Initial opacity for twinkling effect
+            this.maxOpacity = Math.random() * 0.3 + 0.6; 
+            this.color = Math.random() < 0.1 ? this.getRandomColor() : 'rgba(255, 255, 255, 1)'; // 10% chance for a colorful star
+        }
+
+        // Random color generation for rare color pops
+        getRandomColor() {
+            const randomChoice = Math.random();
+            
+            // 50% chance to pick from default colors
+            if (randomChoice < 0.5) { 
+                const colors = ['#ff6347', '#1e90ff', '#32cd32', '#ff1493', '#ff4500'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            } 
+            // 50% chance to pick random bright color
+            else { 
+                // Random hue between 30-60 degrees for bright colors
+                const hue = Math.floor(Math.random() * 30) + 30; 
+                const saturation = 100; 
+                const lightness = Math.floor(Math.random() * 40) + 40; 
+                return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+            }
+        }
+        
+        // Update star's position
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            // Wrap stars around screen
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+
+            // Make star twinkle with random opacity change
+            this.opacity += (Math.random() * 0.1 - 0.05);  
+            if (this.opacity > this.maxOpacity) this.opacity = this.maxOpacity;
+            if (this.opacity < 0.2) this.opacity = 0.2;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+
+            if (this.color === 'rgba(255, 255, 255, 1)') {
+                ctx.fillStyle = this.color;
+            } 
+            else {
+                // For colorful stars, use the RGB color
+                ctx.fillStyle = this.color;
+            }
+
+            ctx.fill();
+        }
+    }
+
+    for (let i = 0; i < 150; i++) { 
+        stars.push(new Star());
+    }
+
+    function animateStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); 
+
+        // Update and draw stars
+        stars.forEach(star => {
+            star.update();
+            star.draw();
+        });
+
+        requestAnimationFrame(animateStars);  // Keep animation going
+    }
+
+    animateStars(); 
+});
+
+
 
 
 
