@@ -171,7 +171,82 @@ input, textarea {
 
 html { font-family: var(--ff-poppins); }
 
-body { background: var(--faded-green); }
+/* body { background: var(--faded-green); } */
+
+.theme-1 {
+    --color-1: var(--faded-green);
+    --color-2: var(--light-sky-blue);
+}
+
+.theme-2 {
+    --color-1: var(--faded-green);
+    --color-2: var(--faded-green);
+}
+
+.theme-3 {
+    --color-1: var(--muted-rose);
+    --color-2: var(--soft-peach);
+}
+
+.theme-4 {
+    --color-1: var(--soft-peach);
+    --color-2: var(--soft-peach);
+}
+
+.theme-5 {
+    --color-1: var(--deep-teal);
+    --color-2: var(--muted-brown);
+}
+
+.theme-6 {
+    --color-1: var(--muted-brown);
+    --color-2: var(--muted-brown);
+}
+
+.theme-7 {
+    --color-1: var(--soft-purple);
+    --color-2: var(--sky-blue);
+}
+
+.theme-8 {
+    --color-1: var(--sky-blue);
+    --color-2: var(--sky-blue);
+}
+
+body {
+    background: repeating-linear-gradient(
+        45deg,  /* Angle of stripes */
+        var(--color-1), 
+        var(--color-1) 40px,
+        var(--color-2) 40px,
+        var(--color-2) 80px 
+    );
+    transition: background 0.5s ease-in-out;
+}
+
+.color-toggle-container {
+    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    width: 100%; 
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+#color-scheme-toggle {
+    text-align: center; 
+    color: var(--white-1);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-300);
+  font-family: monospace;
+}
+
+.color-toggle-container:hover {
+    color: var(--light-sky-blue);
+    transform: scale(1.1);
+    cursor: pointer;
+}
 
 
 

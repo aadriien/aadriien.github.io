@@ -160,6 +160,21 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
 
 
+// Toggle color scheme (webpage background)
+const themes = ["theme-1", "theme-2", "theme-3", "theme-4", "theme-5", "theme-6", "theme-7", "theme-8"];
+let currentTheme = 0;
+
+document.body.classList.add(themes[currentTheme]); // Default on initial load
+
+document.getElementById("color-scheme-toggle").addEventListener("click", function() {
+    // Remove curr theme and grab next in list
+    document.body.classList.remove(themes[currentTheme]);
+    currentTheme = (currentTheme + 1) % themes.length;
+    document.body.classList.add(themes[currentTheme]);
+});
+
+
+
 
 let isFirstLoad = true;
 document.addEventListener("DOMContentLoaded", function() {
