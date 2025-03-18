@@ -575,6 +575,8 @@ function loadPlacesData() {
 
             // Add the region (country) itself
             pointsData.push({
+                id: region.name.toLowerCase().replace(/\s+/g, '-'), // Generate unique ID from region name
+                ringMaxSize: 5,
                 lat: region.latitude,
                 lng: region.longitude,
                 size: region.pinSize,
@@ -584,21 +586,6 @@ function loadPlacesData() {
                 ringMaxSize: 5,
                 ringPropagationSpeed: 0.7,
                 ringRepeatPeriod: 2000 + baseDelay,
-            });
-
-            // Add the cities within the region, using a lighter version of the region's color
-            region.cities.forEach(city => {
-                pointsData.push({
-                    lat: city.latitude,
-                    lng: city.longitude,
-                    size: city.pinSize,
-                    color: changeColorOpacity(regionColor, 0.5),  // Lighter version for cities
-                    label: city.name,
-                    type: "city",
-                    ringMaxSize: 0,
-                    ringPropagationSpeed: 1,
-                    ringRepeatPeriod: 3500 + baseDelay,
-                });
             });
         });
 
@@ -613,9 +600,6 @@ function loadPlacesData() {
 
 function createGlobe() {
     loadPlacesData().then(pointsData => {
-        const regionData = pointsData.filter(place => place.type === 'region');
-        const cityData = pointsData.filter(place => place.type === 'city');
-
         const globeContainer = document.querySelector(".globe-container");
         const renderer = new THREE.WebGLRenderer();
 
@@ -636,7 +620,6 @@ function createGlobe() {
             .ringPropagationSpeed('ringPropagationSpeed')
             .ringRepeatPeriod('ringRepeatPeriod');
 
-        
         // Material for the globe with roughness
         const globeMaterial = new THREE.MeshStandardMaterial({
             color: 0x0055ff, 
@@ -647,7 +630,6 @@ function createGlobe() {
         });
         globe.material = globeMaterial;
 
-        
         globe.scale.set(1, 1, 1);
 
         const scene = new THREE.Scene();
@@ -655,18 +637,12 @@ function createGlobe() {
         scene.add(new THREE.AmbientLight(0xcccccc, 0.5 * Math.PI));
         scene.add(new THREE.DirectionalLight(0xffffff, 0.6 * Math.PI).position.set(0, 1, 1));
         
-
         const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
 
-        // Start with view of the Americas
-        camera.position.set(-200, 50, 50);
-
-        // Start with view of Europe
-        // camera.position.set(20, 110, 150);
-
-        // Start with view between the Americas & Europe
-        // camera.position.set(-120, 100, 100);
-
+        // Start with view of... 
+        camera.position.set(-200, 50, 50); // the Americas
+        // camera.position.set(20, 110, 150); // Europe
+        // camera.position.set(-120, 100, 100); // the Americas & Europe
 
         function resizeCanvas() {
             if (!globeContainer.offsetWidth || !globeContainer.offsetHeight) return;
