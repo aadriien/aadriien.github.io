@@ -649,9 +649,31 @@ function createGlobe() {
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
 
-        // Handle mouse click
-        function onMouseClick(event) {
-            // Get container position & normalize click coords
+        // Check mouse proximity to any region (used for click & hover)
+        function getClosestRegion(clickedLatLng, pointsData, threshold = 4) {
+            let closestRegion = null;
+            let closestDistance = Infinity; 
+
+            pointsData.forEach(region => {
+                const latDiff = Math.abs(clickedLatLng.lat - region.lat);
+                const lngDiff = Math.abs(clickedLatLng.lng - region.lng);
+
+                // If within threshold, it's a match
+                if (latDiff < threshold && lngDiff < threshold) {
+                    const distance = Math.sqrt(latDiff * latDiff + lngDiff * lngDiff);
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestRegion = region;
+                    }
+                }
+            });
+
+            return closestRegion;
+        }
+
+        // Handle mouse movement around globe ripples
+        function onMouseMovement(event) {
+            // Get container position & normalize click coordinates
             const rect = globeContainer.getBoundingClientRect(); 
             mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;  
             mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;  
@@ -661,40 +683,39 @@ function createGlobe() {
             const intersects = raycaster.intersectObjects(scene.children, true);  
 
             if (intersects.length > 0) {
-                const clickedLatLng = getLatLngFromIntersection(intersects[0]);
-                console.log("Clicked lat/lng: ", clickedLatLng) 
-                
-                let closestRegion = null;
-                let closestDistance = Infinity; 
-
-                // Check if clicked lat/lng is near any region
-                pointsData.forEach(region => {
-                    // Proximity threshold (in degrees) for lat/lng difference
-                    const threshold = 5;  
-
-                    const latDiff = Math.abs(clickedLatLng.lat - region.lat);
-                    const lngDiff = Math.abs(clickedLatLng.lng - region.lng);
-
-                    // If within threshold, it's a match
-                    if (latDiff < threshold && lngDiff < threshold) {
-                        console.log(`Clicked near region: ${region.label} (ID: ${region.id})`);
-
-                        // Check if this region is closest (among any selected)
-                        const distance = Math.sqrt(latDiff * latDiff + lngDiff * lngDiff);
-                        if (distance < closestDistance) {
-                            closestDistance = distance;
-                            closestRegion = region;
-                        }
-                    }
-                });
-
-                if (closestRegion) {
-                    console.log(`Closest region: ${closestRegion.label} (ID: ${closestRegion.id})`);
-                    // Trigger actions like opening a card or showing details
-                    // Example: openCard(closestRegion.id);
-                }
+                const mouseLatLng = getLatLngFromIntersection(intersects[0]);
+                return getClosestRegion(mouseLatLng, pointsData);
             }
         }
+
+        // Handle mouse CLICK on globe specifically
+        function onMouseClick(event) {
+            const closestRegion = onMouseMovement(event)
+
+            if (closestRegion) {
+                console.log(`Closest region: ${closestRegion.label} (ID: ${closestRegion.id})`);
+                // Trigger actions like opening a card or showing details
+                // Example: openCard(closestRegion.id);
+            }
+        }
+
+        // Handle mouse HOVER on globe specifically
+        function onMouseHover(event) {
+            const closestRegion = onMouseMovement(event)
+
+            // Change cursor to hand if near clickable region (ripple)
+            if (closestRegion) {
+                document.body.style.cursor = 'pointer'; 
+            } 
+            else {
+                document.body.style.cursor = 'default';
+            }
+        }
+
+        // Event listeners for click & hover within globe
+        window.addEventListener("click", onMouseClick);
+        window.addEventListener("mousemove", onMouseHover);
+
 
         // Function to convert intersection point to lat/long on globe
         function getLatLngFromIntersection(intersection) {
