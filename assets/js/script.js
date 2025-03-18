@@ -644,6 +644,85 @@ function createGlobe() {
         // camera.position.set(20, 110, 150); // Europe
         // camera.position.set(-120, 100, 100); // the Americas & Europe
 
+
+        // Raycaster & mouse vector
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+
+        // Handle mouse click
+        function onMouseClick(event) {
+            // Get container position & normalize click coords
+            const rect = globeContainer.getBoundingClientRect(); 
+            mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;  
+            mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;  
+
+            // Update raycaster based on camera settings & find intersections
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(scene.children, true);  
+
+            if (intersects.length > 0) {
+                const clickedLatLng = getLatLngFromIntersection(intersects[0]);
+                console.log("Clicked lat/lng: ", clickedLatLng) 
+                
+                let closestRegion = null;
+                let closestDistance = Infinity; 
+
+                // Check if clicked lat/lng is near any region
+                pointsData.forEach(region => {
+                    // Proximity threshold (in degrees) for lat/lng difference
+                    const threshold = 5;  
+
+                    const latDiff = Math.abs(clickedLatLng.lat - region.lat);
+                    const lngDiff = Math.abs(clickedLatLng.lng - region.lng);
+
+                    // If within threshold, it's a match
+                    if (latDiff < threshold && lngDiff < threshold) {
+                        console.log(`Clicked near region: ${region.label} (ID: ${region.id})`);
+
+                        // Check if this region is closest (among any selected)
+                        const distance = Math.sqrt(latDiff * latDiff + lngDiff * lngDiff);
+                        if (distance < closestDistance) {
+                            closestDistance = distance;
+                            closestRegion = region;
+                        }
+                    }
+                });
+
+                if (closestRegion) {
+                    console.log(`Closest region: ${closestRegion.label} (ID: ${closestRegion.id})`);
+                    // Trigger actions like opening a card or showing details
+                    // Example: openCard(closestRegion.id);
+                }
+            }
+        }
+
+        // Function to convert intersection point to lat/long on globe
+        function getLatLngFromIntersection(intersection) {
+            const point = intersection.point;  
+
+            if (!point || !point.x || !point.y || !point.z) {
+                console.error('Invalid point:', point);
+                return { lat: NaN, lng: NaN };
+            }
+
+            // Globe's radius (adjusted by scale) & camera distance from origin
+            const globeRadius = globe.scale.x;  
+            // const cameraDistance = camera.position.length(); 
+
+            // Normalize point relative to globe (scale, zoom, etc)
+            const normalizedPoint = point.clone().normalize(); 
+
+            // Convert to latitude & longitude
+            const lat = Math.asin(normalizedPoint.y / globeRadius) * (180 / Math.PI);
+            const lng = Math.atan2(normalizedPoint.x, normalizedPoint.z) * (180 / Math.PI);
+
+            return { lat, lng };
+        }
+
+        // Add click event listener to renderer's DOM element
+        renderer.domElement.addEventListener('click', onMouseClick, false);
+
+
         function resizeCanvas() {
             if (!globeContainer.offsetWidth || !globeContainer.offsetHeight) return;
 
