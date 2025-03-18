@@ -21,7 +21,7 @@
             "Vollpension cafe"
         ],
         "funFact": [
-            "Cafe culture is a whole experience!"
+            "The taste and texture of dairy products vary greatly across regions.. particularly Alpine!"
         ],
         "cities": [
             {
@@ -60,7 +60,7 @@
             "Père-Lachaise Cemetery"
         ],
         "funFact": [
-            "Disneyland is just a 45 min train ride away!"
+            "Disneyland is just a 45 min train ride from the city center, and it's the only Disney park in Europe!"
         ],
         "cities": [
             {
@@ -99,7 +99,7 @@
             "Nuremberg Toy Museum"
         ],
         "funFact": [
-            "Some municipalities enforce a dog tax."
+            "Many cities enforce a dog tax. By contrast, some municipalities offer tax breaks to families with kids."
         ],
         "cities": [
             {
@@ -136,7 +136,7 @@
             "Turtle nests along the Riviera Maya"
         ],
         "funFact": [
-            "The Mesoamerican Barrier Reef is the 2nd largest in the world!"
+            "The Mesoamerican Barrier Reef is the 2nd largest in the world, spanning 4 countries!"
         ],
         "cities": [
             {
@@ -226,7 +226,7 @@
             "Catedral Primada de Toledo"
         ],
         "funFact": [
-            "The tortilla debate is real, and it all comes down to onions."
+            "The Spanish tortilla de patatas debate is real, and it all comes down to onions."
         ],
         "cities": [
             {
@@ -290,7 +290,7 @@
             "Ceremony of the Keys"
         ],
         "funFact": [
-            "Roman ruins are everywhere in London."
+            "Roman ruins are everywhere in London, which was originally founded as Londinium."
         ],
         "cities": [
             {
@@ -362,10 +362,11 @@
         ],
         "coolUnusual": [
             "The Tenement Museum",
-            "Downtown Salem (not on Halloween)"
+            "Downtown Salem (not on Halloween)",
+            "Reclaim Arcade"
         ],
         "funFact": [
-            "Driving habits change dramatically across states."
+            "The U.S. has the most diverse climate zones of any country.. from tropical to tundra!"
         ],
         "cities": [
             {
@@ -411,7 +412,7 @@
                 "pinSize": 1
             },
             {
-                "name": "Washington DC",
+                "name": "Washington, D.C.",
                 "latitude": 38.9072,
                 "longitude": -77.0369,
                 "pinSize": 1
