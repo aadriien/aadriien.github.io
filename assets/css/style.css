@@ -222,6 +222,7 @@ body {
         var(--color-2) 80px 
     );
     transition: background 0.5s ease-in-out;
+    background-attachment: fixed;
 }
 
 .color-toggle-container {
@@ -242,8 +243,8 @@ body {
   font-family: monospace;
 }
 
-.color-toggle-container:hover {
-    color: var(--light-sky-blue);
+#color-scheme-toggle:hover {
+    color: var(--soft-purple);
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -591,12 +592,36 @@ main {
 
 .about-text {
   color: var(--light-gray);
-  font-size: var(--fs-6);
+  font-size: var(--fs-4);
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
 
-.about-text p { margin-bottom: 15px; }
+.about-text p { 
+    margin-bottom: 15px; 
+    font-family: monospace;
+    font-size: var(--fs-4);
+    white-space: pre-wrap; 
+    display: inline-block; /* Prevents weird cursor placement */
+    line-height: 1.2; /* Keeps cursor aligned with text */
+}
+
+.cursor {
+    display: inline-block;
+    font-weight: bold;
+    font-size: var(--fs-4);
+    color: var(--faded-green); 
+    line-height: 1.2; 
+}
+
+.blink {
+    animation: blink-animation 0.8s infinite alternate;
+}
+
+@keyframes blink-animation {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
 
 
 

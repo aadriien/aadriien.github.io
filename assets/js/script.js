@@ -174,6 +174,61 @@ document.getElementById("color-scheme-toggle").addEventListener("click", functio
 });
 
 
+// About Me text paragraph
+document.addEventListener("DOMContentLoaded", function () {
+    const paragraph = document.querySelector(".about-text p");
+        const sentences = [
+            "Hi! ", 
+            "",
+            "I'm Adrien, a data-driven software engineer with a passion for building. ", 
+            "I care about generating impact, delighting users, leaning into cool ideas, and learning along the way. ",
+            "\n\nMy approach to engineering is human-centered, so I hope you have as much fun exploring this site as I had creating it. ", 
+            "\n\nCheck out my projects, interact with the globe, and if you'd like to collaborate, be sure to reach out! "
+        ];
+        // Clear text initially
+        const text = paragraph.innerText;
+        paragraph.innerText = ""; 
+
+    // Wait 2 sec after DOM loaded before starting typing effect
+    setTimeout(function() {
+        let i = 0, sentenceIndex = 0;
+        const fastSpeed = 70; // Typing speed
+        const commaPause = 300;
+        const sentencePause = 700; // Pause before next sentence
+        let fullText = ""; 
+
+        function typeEffect() {
+            if (sentenceIndex < sentences.length) {
+                if (i < sentences[sentenceIndex].length) {
+                    let char = sentences[sentenceIndex][i];
+                    fullText += char; 
+
+                    paragraph.innerHTML = fullText + '<span class="cursor">▊</span>';
+                    i++;
+
+                    // Pause slightly after commas
+                    let delay = (char === ",") ? commaPause : fastSpeed;
+                    setTimeout(typeEffect, delay);
+                } 
+                else {
+                    i = 0;
+                    sentenceIndex++;
+                    if (sentenceIndex < sentences.length) {
+                        // Pause before next sentence
+                        setTimeout(typeEffect, sentencePause); 
+                    } 
+                    else {
+                        // Cursor blinks after full text
+                        document.querySelector(".cursor").classList.add("blink"); 
+                    }
+                }
+            }
+        }
+        // Initial delay before typing starts
+        setTimeout(typeEffect, 500); 
+    }, 1000);
+});
+
 
 
 let isFirstLoad = true;
