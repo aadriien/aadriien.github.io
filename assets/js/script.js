@@ -340,7 +340,8 @@ document.addEventListener("DOMContentLoaded", function() {
             attachToggleEvents();
             isFirstLoad = false; 
         }, 10);  // Slight delay to ensure everything is populated
-    } else {
+    } 
+    else {
         attachToggleEvents();
     }
 });
@@ -406,7 +407,7 @@ function populatePlacesPage() {
                 }
             ];
 
-            data.forEach(country => {
+            data.forEach(region => {
                 // Create list item
                 const listItem = document.createElement("li");
                 listItem.classList.add("places-post-item");
@@ -420,14 +421,14 @@ function populatePlacesPage() {
                 figure.classList.add("places-banner-box");
 
                 const img = document.createElement("img");
-                img.src = country.image.src;  // Assuming JSON has `image.src`
-                img.alt = country.image.alt;  // Assuming JSON has `image.alt`
+                img.src = region.image.src;  // Assuming JSON has `image.src`
+                img.alt = region.image.alt;  // Assuming JSON has `image.alt`
                 img.loading = "lazy";
 
-                // Country Title
+                // Region Title
                 const title = document.createElement("h3");
                 title.classList.add("h3", "places-item-title");
-                title.textContent = country.name;
+                title.textContent = region.name;
 
                 // Add the meta and title above the image
                 figure.appendChild(title);
@@ -470,8 +471,8 @@ function populatePlacesPage() {
                     const list = document.createElement("ol");
                     list.classList.add("timeline-list");
 
-                    // Assuming `country[section.key]` contains an array of items
-                    country[section.key].forEach(item => {
+                    // Assuming `region[section.key]` contains an array of items
+                    region[section.key].forEach(item => {
                         const listItem = document.createElement("li");
                         listItem.classList.add("timeline-item");
 
@@ -573,7 +574,7 @@ function loadPlacesData() {
             const regionColor = regionColors[region.name] || "rgba(0, 0, 0, 1)"; // Default to black if no color found
             const baseDelay = Math.random() * 2000;  // Randomized delay for each region
 
-            // Add the region (country) itself
+            // Add the region (e.g. country) itself
             pointsData.push({
                 id: region.name.toLowerCase().replace(/\s+/g, '-'), // Generate unique ID from region name
                 ringMaxSize: 5,
@@ -688,14 +689,70 @@ function createGlobe() {
             }
         }
 
+        // Make sure click not activated on globe rotate
+        let isRotating = false;
+        let lastMousePosition = { x: 0, y: 0 };
+        let mouseMovementThreshold = 50; 
+
+        window.addEventListener("mousemove", (event) => {
+            const deltaX = Math.abs(event.clientX - lastMousePosition.x);
+            const deltaY = Math.abs(event.clientY - lastMousePosition.y);
+
+            // If mouse has moved beyond threshold, consider it a rotation
+            if (deltaX > mouseMovementThreshold || deltaY > mouseMovementThreshold) {
+                isRotating = true;
+            }
+
+            lastMousePosition = { x: event.clientX, y: event.clientY };
+        });
+
         // Handle mouse CLICK on globe specifically
+        let clickCooldown = false;
         function onMouseClick(event) {
-            const closestRegion = onMouseMovement(event)
+            // Prevent duplicate / excessive clicks 
+            if (clickCooldown) return;   
+            clickCooldown = true;
+            setTimeout(() => clickCooldown = false, 50);
+
+            if (isRotating) {
+                // Ignore click if rotating globe
+                console.log("Ignored click during globe rotation");
+                isRotating = false;
+                return;
+            }
+
+            const closestRegion = onMouseMovement(event);
 
             if (closestRegion) {
                 console.log(`Closest region: ${closestRegion.label} (ID: ${closestRegion.id})`);
-                // Trigger actions like opening a card or showing details
-                // Example: openCard(closestRegion.id);
+ 
+                // Find card by region to toggle open 
+                const cards = document.querySelectorAll(".card-content");
+                let matchingCard = null;
+
+                cards.forEach((card) => {
+                    const titleElement = card.querySelector(".places-item-title");
+                    if (titleElement && titleElement.textContent.trim() === closestRegion.label) {
+                        matchingCard = card;
+                    }
+                });
+
+                if (matchingCard) {  
+                    console.log(`Opening card for ${closestRegion.label}`);                  
+                    const timelineContainer = matchingCard.querySelector(".timeline-container");
+
+                    // Check if already open before applying state
+                    if (!matchingCard.classList.contains("clicked")) {
+                        matchingCard.classList.add("clicked"); 
+                        if (timelineContainer) timelineContainer.style.display = "block"; 
+                    } 
+
+                    // Scroll to open card (based on region clicked)
+                    matchingCard.scrollIntoView({ behavior: "smooth", block: "start" });
+                } 
+                else {
+                    console.log(`No card found for ${closestRegion.label}`);
+                }
             }
         }
 
@@ -713,8 +770,8 @@ function createGlobe() {
         }
 
         // Event listeners for click & hover within globe
-        window.addEventListener("click", onMouseClick);
-        window.addEventListener("mousemove", onMouseHover);
+        globeContainer.addEventListener("click", onMouseClick);
+        globeContainer.addEventListener("mousemove", onMouseHover);
 
 
         // Function to convert intersection point to lat/long on globe
