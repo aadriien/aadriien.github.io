@@ -69,6 +69,18 @@
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
 
+  /* retro computer & terminal palette */
+  --retro-computer-green: hsl(120, 100%, 50%);
+  --retro-warm-amber: hsl(30, 100%, 40%);
+  --retro-dark-gray: hsl(0, 0%, 15%);
+  --retro-old-beige: hsl(60, 40%, 75%);
+  --retro-muted-gray: hsl(0, 3%, 42%);
+  --retro-musty-brown: hsl(25, 50%, 30%);
+  --retro-dark-charcoal: hsl(0, 0%, 20%);
+  --retro-soft-black: hsl(0, 0%, 10%);
+  --retro-dark-cyan: hsl(180, 74%, 21%);
+  --retro-olive-green: hsl(93, 17%, 24%);
+
   /* avatar color palette */
   --sky-blue: hsl(203, 51%, 62%);
   --bright-blue: hsl(188, 76%, 67%);
@@ -651,51 +663,19 @@ main {
 
 .about .article-title { margin-bottom: 15px; }
 
-.about-text {
-  color: var(--light-gray);
-  text-shadow: 1px 1px 3px var(--faded-green);
-  font-size: var(--fs-4);
-  font-weight: var(--fw-300);
-  line-height: 1.6;
-}
-
-.about-text p { 
-    margin-bottom: 15px; 
-    font-family: monospace;
-    font-size: var(--fs-4);
-    white-space: pre-wrap; 
-    display: inline-block; /* Prevents weird cursor placement */
-    line-height: 1.6; /* Keeps cursor aligned with text */
-    position: relative;
-    z-index: 1;
-}
-
-.cursor {
-    display: inline-block;
-    font-weight: bold;
-    font-size: var(--fs-4);
-    color: var(--faded-green); 
-    line-height: 1.6; 
-}
-
-.blink {
-    animation: blink-animation 0.8s infinite alternate;
-}
-
-@keyframes blink-animation {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-}
 
 /* Nebula effect */
 .nebula-container {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;  
-    height: 200px; 
+    height: 100%; 
+    opacity: 0.3;
     border-radius: 75%;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     overflow: hidden;  
-    z-index: 1;  
+    z-index: -1;  
 }
 
 .nebula-container canvas {
@@ -707,6 +687,179 @@ main {
     display: block;
     pointer-events: none;  /* Prevent it from interfering with other elements */
 }
+
+
+/* Computer terminal effect */
+.computer-container {
+    max-width: 95%;
+    height: 60vh; /* Use 50% of viewport height */
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px 24px 0 0;
+    margin: 30px auto; /* Center container horizontally */
+    z-index: 1;
+  }
+  
+  .screen-container {
+    flex: 0 0 85%;
+    border-radius: 20px 20px 0 0;
+    background: var(--retro-olive-green);
+    padding: 10px;
+  }
+  
+  .screen-outline {
+    height: 100%;
+    background-color: var(--retro-dark-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px 20px;
+  }
+  
+  .screen {
+    position: relative;
+    background-color: var(--retro-soft-black);
+    height: 90%;
+    width: 90%;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 230px / 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; /* Ensures padding included in element size */
+    overflow: hidden; /* Prevents text from spilling out */
+    z-index: 1;
+  }
+  
+  .computer-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--retro-dark-charcoal);
+    border-radius: 0 0 24px 24px;
+    padding: 20px 30px;
+  }
+  
+  .computer-body-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .computer-features {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .computer-slot {
+    height: 12px;
+    width: 200px;
+    background-color: var(--retro-soft-black);
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .computer-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--retro-soft-black);
+    margin-left: 80px; /* Adds space between slots & button */
+  }
+  
+  .terminal {
+    height: 250px;
+    flex: 0 0 95%;
+    padding: 0 30px;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+  
+  .terminal::-webkit-scrollbar {
+    width: 4px;
+  }
+  .terminal::-webkit-scrollbar-track {
+    display: none;
+  }
+  .terminal::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--retro-computer-green);
+  }
+  
+  .about-text {
+    color: var(--retro-computer-green);
+    text-shadow: 1px 1px 3px var(--faded-green);
+    font-family: monospace;
+    font-size: var(--fs-4);
+    font-weight: var(--fw-300);
+    line-height: 1.6;
+    margin: -30px 0;
+
+    display: inline-block; /* Prevents weird cursor placement */
+    white-space: pre-wrap; 
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .cursor {
+      display: inline-block;
+      font-weight: bold;
+      font-size: var(--fs-4);
+      color: var(--retro-computer-green); 
+      line-height: 1.6; 
+  }
+  
+  .blink {
+      animation: blink-animation 0.8s infinite alternate;
+  }
+  
+  @keyframes blink-animation {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+  }
+
+
+  @media (max-width: 768px) and (min-height: 800px) {
+    .computer-container {
+      height: 50vh;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .computer-body {
+      flex: 0;
+    }
+
+    .computer-slot {
+      height: 8px;
+      width: 100px; 
+    }
+  
+    .computer-button {
+      width: 20px; 
+      height: 20px;
+      margin-left: 0;
+    }
+
+    .terminal {
+        padding: 0 10px;
+    }
+
+    .about-text {
+        margin: -40px 0;
+      }
+  }
+  
+  
+  
 
 
 

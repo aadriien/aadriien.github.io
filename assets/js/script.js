@@ -178,6 +178,7 @@ document.getElementById("color-scheme-toggle").addEventListener("click", functio
 document.addEventListener("DOMContentLoaded", function () {
     const paragraph = document.querySelector(".about-text p");
         const sentences = [
+            "> ",
             "Hi! ", 
             "",
             "I'm Adrien, a data-driven software engineer with a passion for building. ", 
