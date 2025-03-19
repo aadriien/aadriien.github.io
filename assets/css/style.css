@@ -776,7 +776,8 @@ main {
   .terminal {
     height: 250px;
     flex: 0 0 95%;
-    padding: 0 30px;
+    padding-left: 30px;
+    padding-right: 50px;
     overflow: hidden;
     overflow-y: auto;
     box-sizing: border-box;
@@ -784,7 +785,7 @@ main {
   }
   
   .terminal::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
   }
   .terminal::-webkit-scrollbar-track {
     display: none;
@@ -800,7 +801,7 @@ main {
     font-family: monospace;
     font-size: var(--fs-4);
     font-weight: var(--fw-300);
-    line-height: 1.6;
+    line-height: 1.7;
     margin: -30px 0;
 
     display: inline-block; /* Prevents weird cursor placement */
@@ -814,7 +815,7 @@ main {
       font-weight: bold;
       font-size: var(--fs-4);
       color: var(--retro-computer-green); 
-      line-height: 1.6; 
+      line-height: 1.7; 
   }
   
   .blink {
