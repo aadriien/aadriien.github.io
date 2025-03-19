@@ -279,6 +279,23 @@ body {
 }
 
 
+@media screen and (max-width: 768px) {
+    #color-scheme-toggle {
+        background: repeating-linear-gradient(
+            45deg, 
+            var(--color-1), 
+            var(--color-1) 20px, 
+            var(--color-2) 20px, 
+            var(--color-2) 40px
+        );
+    }
+
+    #color-scheme-toggle::before {
+        display: none; /* Removes the pseudo-element on mobile */
+    }
+}
+
+
 
 
 
@@ -442,7 +459,7 @@ main {
   transition: var(--transition-2);
 }
 
-.sidebar.active { max-height: 405px; }
+.sidebar.active { max-height: 500px; }
 
 .sidebar-info {
   position: relative;
@@ -450,7 +467,6 @@ main {
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
-  margin-bottom: 20px;
 }
 
 /* .avatar-box {
@@ -622,6 +638,7 @@ main {
 
 .about-text {
   color: var(--light-gray);
+  text-shadow: 1px 1px 3px var(--faded-green);
   font-size: var(--fs-4);
   font-weight: var(--fw-300);
   line-height: 1.6;
