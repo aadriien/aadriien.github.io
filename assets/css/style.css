@@ -273,8 +273,7 @@ body {
 }
 
 #color-scheme-toggle:hover {
-    /* color: var(--soft-purple); */
-    transform: scale(1.1);
+    transform: scale(1.07);
     cursor: pointer;
 }
 
