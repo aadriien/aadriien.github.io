@@ -281,6 +281,8 @@ body {
 
 @media screen and (max-width: 768px) {
     #color-scheme-toggle {
+        font-size: var(--fs-6);
+        width: 100%;
         background: repeating-linear-gradient(
             45deg, 
             var(--color-1), 
@@ -289,9 +291,23 @@ body {
             var(--color-2) 40px
         );
     }
+    #color-scheme-toggle:hover {
+        transform: none;
+    }
 
     #color-scheme-toggle::before {
-        display: none; /* Removes the pseudo-element on mobile */
+        display: none; /* Removes pseudo-element background on mobile */
+    }
+
+    .info-content .name {
+        font-size: var(--fs-1) !important;
+    }
+    .info-content .title {
+        font-size: var(--fs-7) !important;
+    }
+
+    .navbar-link {
+        font-size: var(--fs-5) !important;
     }
 }
 
