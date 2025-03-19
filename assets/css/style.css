@@ -231,7 +231,6 @@ body {
   justify-content: center;
   align-items: center;
     width: 100%; 
-    margin-bottom: 20px;
 }
 
 #color-scheme-toggle {
@@ -451,6 +450,7 @@ main {
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
+  margin-bottom: 20px;
 }
 
 /* .avatar-box {
@@ -1213,7 +1213,7 @@ main {
 
 
 /*-----------------------------------*\
-  #TRAVEL
+  #PLACES
 \*-----------------------------------*/
 
 .globe-container {
@@ -1379,8 +1379,7 @@ main {
   }
 
   /* On hover, show image at reduced opacity */
-.card-content:hover .places-banner-box img,
-.card-content:focus .places-banner-box img {
+.card-content:hover .places-banner-box img {
     opacity: 0.4; 
 }
 
