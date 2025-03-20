@@ -1303,6 +1303,7 @@ main {
   }
   
   .places-item-title {
+      text-align: center;
     line-height: 1.3;
     transition: var(--transition-1);
     
