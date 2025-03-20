@@ -22,7 +22,7 @@ Enjoy visiting my small piece of the internet!
 
 ## Design Choices
 
-### A focus on interaction
+### Interactive engagement
 From filtering collections, to expanding cards, to generating images on hover, to spinning a hyper-realistic Three.js globe, to clicking geolocated ripples, this site is meant to be explored.
 
 ### Togglable color scheme
@@ -32,15 +32,18 @@ YOU choose the background! Zesty stripes or classic solids, in a variety of colo
 My `about me` section is delivered on the screen of a retro computer terminal, with real-time typing (plus human-realistic pauses), a blinking cursor, and of course, a bright green text that's reminiscent of the old school PC.
 
 ### Starry creativity
-This same retro computer terminal also has a sparkling, star-strewn nebula in the background—at a reduced opacity to maintain text visibility.
+This same retro computer terminal also has a sparkling, star-strewn nebula in the background—at a reduced opacity to maintain text visibility in the foreground.
 
 ### Sleek and balanced
 A consistent, relaxed structure maintains cohesion and organization throughout the site. Thoughtfully-crafted features add a touch of whimsy and playfulness, with pops of color to brighten the theme. 
 
+### Mobile-friendly
+Whether viewing on a computer, phone, or tablet, you can enjoy all that my site has to offer.
+
 
 ## Acknowledgements
 
-When first starting to build this site, I began by iterating on [codewithsadee's](https://github.com/codewithsadee/vcard-personal-portfolio) open source profile template. I have since made extensive modifications—adjusting layout, style, functionality, etc., and adding several features specific to my needs. However, much of the core skeleton (e.g. navbars, grids, etc.) reflects Sadee's work. Thank you, Sadee! 
+When first starting to build this site, I began by iterating on [codewithsadee](https://github.com/codewithsadee/vcard-personal-portfolio)'s open source profile template. I have since made extensive modifications—adjusting layout, style, functionality, etc., and adding several features specific to my needs. However, much of the core skeleton (e.g. navbars, grids, etc.) reflects Sadee's work. Thank you, Sadee! 
 
 
 ## Let's Connect
