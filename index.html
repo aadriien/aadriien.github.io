@@ -2,749 +2,751 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adrien L.</title>
-
-  <!--
-    - favicon
-  -->
-  <link rel="icon" href="./assets/images/github-avatar-favicon.png" type="image/png">
-
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrien L.</title>
+    
+    <!--
+        - favicon
+    -->
+    <link rel="icon" href="./assets/images/github-avatar-favicon.png" type="image/png">
+    
+    <!--
+        - custom css link
+    -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <!--
+        - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
+    
     <!--
-      - #SIDEBAR
+        - #MAIN
     -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/github-avatar-aadriien.png" alt="Adrien" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Adrien">Adrien L.</h1>
-
-          <p class="title">{ software engineer }</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:adriienlynch@gmail.com" class="contact-link">adriienlynch@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="person"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">LinkedIn</p>
-
-              <a href="https://www.linkedin.com/in/adrienlynch" target="_blank" class="contact-link">linkedin.com/in/adrienlynch</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="code"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">GitHub</p>
-
-              <a href="https://github.com/aadriien" target="_blank" class="contact-link">github.com/aadriien</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>United States</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <div class="color-toggle-container">
-            <button id="color-scheme-toggle">Toggle Color Scheme</Toggle></button>
-        </div>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Tech</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Projects</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Places</button>
-          </li>
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="computer-container">
-
-            <section class="screen-container">
-                <div class="screen-outline">
-                    <div class="screen">
-
-                        <div class="terminal">
-                            <!-- Nebula inside of terminal (behind text) -->
-                            <section class="nebula-container" data-nebula>
-                                <canvas></canvas>
-                            </section>
-
-                            <!-- Typing effect goes here -->
-                            <section class="about-text">
-                                <p></p> 
-                            </section> 
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section class="computer-body">
-                <div class="computer-body-container">
-                <div class="computer-features">
-                    <div class="computer-slot"></div>
-                    <div class="computer-slot"></div>
-                    <div class="computer-button"></div>
-                </div>
-                </div>
-            </section>
-
-        </section>
-
-
-        <!--
-          - affiliations
-        -->
-
-        <section class="affiliations">
-
-          <h3 class="h3 affiliations-title">Affiliations</h3>
-
-          <ul class="affiliations-list has-scrollbar">
-
-            <li class="affiliations-item">
-              <a href="https://hackny.org" target="_blank">
-                <img src="./assets/images/logo-imgs/logo-hackny.png" alt="hackny logo">
-              </a>
-            </li>
-
-            <li class="affiliations-item">
-                <a href="https://www.recurse.com" target="_blank">
-                  <img src="./assets/images/logo-imgs/logo-recursecenter.png" alt="recurse center logo">
-                </a>
-              </li>
-
-            <li class="affiliations-item">
-              <a href="https://www.tufts.edu" target="_blank">
-                <img src="./assets/images/logo-imgs/logo-tufts.png" alt="tufts logo">
-              </a>
-            </li>
-
-            <li class="affiliations-item">
-              <a href="https://www.qmul.ac.uk" target="_blank">
-                <img src="./assets/images/logo-imgs/logo-qmul.png" alt="qmul logo">
-              </a>
-            </li>        
-
-          </ul>
-
-        </section>
-
-      <!--
-          - contact form
-        -->
-
-        <section class="contact-form">
-
-            <h3 class="h3 form-title">Contact Form</h3>
-  
-            <form action="#" class="form" data-form>
-  
-              <div class="input-wrapper">
-                <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-  
-                <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-              </div>
-  
-              <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-  
-              <button class="form-btn" type="submit" disabled data-form-btn>
-                <ion-icon name="paper-plane"></ion-icon>
-                <span>Send Message</span>
-              </button>
-  
-            </form>
-  
-          </section>
-
-        </article>
-
-
-      <!--
-        - #TECH
-      -->
-
-      <article class="tech" data-page="tech">
-
-        <header>
-          <h2 class="h2 article-title">Tech</h2>
-        </header>
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What I'm Doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Software Development</h4>
-
-                <p class="service-item-text">
-                  Building products that make users happy, and writing code that
-                  makes developers happy.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Data Engineering</h4>
-
-                <p class="service-item-text">
-                  Constructing pipelines and maintaining databases for clear,
-                  clean, and secure insights.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-                <div class="service-icon-box">
-                  <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-                </div>
-  
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Data Science</h4>
-  
-                  <p class="service-item-text">
-                    Telling stories, analyzing outcomes, and driving impact. 
-                  </p>
-                </div>
-  
-              </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Language Translation</h4>
-
-                <p class="service-item-text">
-                  English, Spanish, French, and German.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-        <br>
-
-        <section class="service">
-
-            <h3 class="h3 service-title">What I'm Learning</h3>
-  
-            <ul class="service-list">
-  
-              <li class="service-item">
-  
-                <div class="service-icon-box">
-                  <img src="./assets/images/icon-design.svg
-                  " alt="design icon" width="40">
-                </div>
-  
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Electronics</h4>
-  
-                  <p class="service-item-text">
-                    Tinkering with micrcontrollers and transducers to bring fun ideas to life.
-                  </p>
-                </div>
-  
-              </li>
-  
-              <li class="service-item">
-  
-                <div class="service-icon-box">
-                  <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-                </div>
-  
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">AWS</h4>
-  
-                  <p class="service-item-text">
-                    Experimenting with cloud services and infrastructure.
-                  </p>
-                </div>
-  
-              </li>
-  
-            </ul>
-  
-          </section>
+    
+    <main>
         
-        </article>
-
-
-      <!--
-        - #PROJECTS
-      -->
-
-      <article class="projects" data-page="projects">
-
-        <header>
-          <h2 class="h2 article-title">Projects</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Data & ML</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web Dev</button>
-            </li>
-
-            <li class="filter-item">
-                <button data-filter-btn>Electronics</button>
-              </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Security</button>
-            </li>
-
-            <li class="filter-item">
-                <button data-filter-btn>Games</button>
-              </li>
-
-            <li class="filter-item">
-                <button data-filter-btn>Languages</button>
-              </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Data & ML</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web Dev</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Electronics</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Security</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Games</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Languages</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="data & ml,web dev,security">
-              <a href="https://github.com/aadriien/price-tracker" target="_blank" rel="noopener noreferrer">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-imgs/work-in-progress.png" alt="Price Tracker" loading="lazy">
+        <!--
+            - #SIDEBAR
+        -->
+        
+        <aside class="sidebar" data-sidebar>
+            
+            <div class="sidebar-info">
+                
+                <figure class="avatar-box">
+                    <img src="./assets/images/github-avatar-aadriien.png" alt="Adrien" width="80">
                 </figure>
-
-                <h3 class="project-title">Price Tracker</h3>
-
-                <p class="project-category">Data & ML, Web Dev, Security</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="games">
-                <a href="https://github.com/aadriien/space-invaders" target="_blank" rel="noopener noreferrer">
-  
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
+                
+                <div class="info-content">
+                    <h1 class="name" title="Adrien">Adrien L.</h1>
+                    
+                    <p class="title">{ software engineer }</p>
+                </div>
+                
+                <button class="info_more-btn" data-sidebar-btn>
+                    <span>Show Contacts</span>
+                    
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+                
+            </div>
+            
+            <div class="sidebar-info_more">
+                
+                <div class="separator"></div>
+                
+                <ul class="contacts-list">
+                    
+                    <li class="contact-item">
+                        
+                        <div class="icon-box">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
+                            
+                            <a href="mailto:adriienlynch@gmail.com" class="contact-link">adriienlynch@gmail.com</a>
+                        </div>
+                        
+                    </li>
+                    
+                    <li class="contact-item">
+                        
+                        <div class="icon-box">
+                            <ion-icon name="person"></ion-icon>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <p class="contact-title">LinkedIn</p>
+                            
+                            <a href="https://www.linkedin.com/in/adrienlynch" target="_blank" class="contact-link">linkedin.com/in/adrienlynch</a>
+                        </div>
+                        
+                    </li>
+                    
+                    <li class="contact-item">
+                        
+                        <div class="icon-box">
+                            <ion-icon name="code"></ion-icon>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <p class="contact-title">GitHub</p>
+                            
+                            <a href="https://github.com/aadriien" target="_blank" class="contact-link">github.com/aadriien</a>
+                        </div>
+                        
+                    </li>
+                    
+                    <li class="contact-item">
+                        
+                        <div class="icon-box">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <p class="contact-title">Location</p>
+                            
+                            <address>United States</address>
+                        </div>
+                        
+                    </li>
+                    
+                </ul>
+                
+                <div class="separator"></div>
+                
+                <div class="color-toggle-container">
+                    <button id="color-scheme-toggle">Toggle Color Scheme</Toggle></button>
+                </div>
+                
+            </div>
+            
+        </aside>
+        
+        
+        
+        
+        
+        <!--
+            - #main-content
+        -->
+        
+        <div class="main-content">
+            
+            <!--
+                - #NAVBAR
+            -->
+            
+            <nav class="navbar">
+                
+                <ul class="navbar-list">
+                    
+                    <li class="navbar-item">
+                        <button class="navbar-link  active" data-nav-link>About</button>
+                    </li>
+                    
+                    <li class="navbar-item">
+                        <button class="navbar-link" data-nav-link>Tech</button>
+                    </li>
+                    
+                    <li class="navbar-item">
+                        <button class="navbar-link" data-nav-link>Projects</button>
+                    </li>
+                    
+                    <li class="navbar-item">
+                        <button class="navbar-link" data-nav-link>Places</button>
+                    </li>
+                    
+                </ul>
+                
+            </nav>
+            
+            
+            
+            
+            
+            <!--
+                - #ABOUT
+            -->
+            
+            <article class="about  active" data-page="about">
+                
+                <header>
+                    <h2 class="h2 article-title">About me</h2>
+                </header>
+                
+                <section class="computer-container">
+                    
+                    <section class="screen-container">
+                        <div class="screen-outline">
+                            <div class="screen">
+                                
+                                <div class="terminal">
+                                    <!-- Nebula inside of terminal (behind text) -->
+                                    <section class="nebula-container" data-nebula>
+                                        <canvas></canvas>
+                                    </section>
+                                    
+                                    <!-- Typing effect goes here -->
+                                    <section class="about-text">
+                                        <p></p> 
+                                    </section> 
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="computer-body">
+                        <div class="computer-body-container">
+                            <div class="computer-features">
+                                <div class="computer-slot"></div>
+                                <div class="computer-slot"></div>
+                                <div class="computer-button"></div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                </section>
+                
+                
+                <!--
+                    - affiliations
+                -->
+                
+                <section class="affiliations">
+                    
+                    <h3 class="h3 affiliations-title">Affiliations</h3>
+                    
+                    <ul class="affiliations-list has-scrollbar">
+                        
+                        <li class="affiliations-item">
+                            <a href="https://hackny.org" target="_blank">
+                                <img src="./assets/images/logo-imgs/logo-hackny.png" alt="hackny logo">
+                            </a>
+                        </li>
+                        
+                        <li class="affiliations-item">
+                            <a href="https://www.recurse.com" target="_blank">
+                                <img src="./assets/images/logo-imgs/logo-recursecenter.png" alt="recurse center logo">
+                            </a>
+                        </li>
+                        
+                        <li class="affiliations-item">
+                            <a href="https://www.tufts.edu" target="_blank">
+                                <img src="./assets/images/logo-imgs/logo-tufts.png" alt="tufts logo">
+                            </a>
+                        </li>
+                        
+                        <li class="affiliations-item">
+                            <a href="https://www.qmul.ac.uk" target="_blank">
+                                <img src="./assets/images/logo-imgs/logo-qmul.png" alt="qmul logo">
+                            </a>
+                        </li>        
+                        
+                    </ul>
+                    
+                </section>
+                
+                <!--
+                    - contact form
+                -->
+                
+                <section class="contact-form">
+                    
+                    <h3 class="h3 form-title">Contact Form</h3>
+                    
+                    <form action="#" class="form" data-form>
+                        
+                        <div class="input-wrapper">
+                            <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+                            
+                            <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+                        </div>
+                        
+                        <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+                        
+                        <button class="form-btn" type="submit" disabled data-form-btn>
+                            <ion-icon name="paper-plane"></ion-icon>
+                            <span>Send Message</span>
+                        </button>
+                        
+                    </form>
+                    
+                </section>
+                
+            </article>
+            
+            
+            <!--
+                - #TECH
+            -->
+            
+            <article class="tech" data-page="tech">
+                
+                <header>
+                    <h2 class="h2 article-title">Tech</h2>
+                </header>
+                
+                <!--
+                    - service
+                -->
+                
+                <section class="service">
+                    
+                    <h3 class="h3 service-title">What I'm Doing</h3>
+                    
+                    <ul class="service-list">
+                        
+                        <li class="service-item">
+                            
+                            <div class="service-icon-box">
+                                <img src="./assets/images/icon-design.svg
+                                " alt="design icon" width="40">
+                            </div>
+                            
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Software Development</h4>
+                                
+                                <p class="service-item-text">
+                                    Building products that make users happy, and writing code that
+                                    makes developers happy.
+                                </p>
+                            </div>
+                            
+                        </li>
+                        
+                        <li class="service-item">
+                            
+                            <div class="service-icon-box">
+                                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+                            </div>
+                            
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Data Engineering</h4>
+                                
+                                <p class="service-item-text">
+                                    Constructing pipelines and maintaining databases for clear,
+                                    clean, and secure insights.
+                                </p>
+                            </div>
+                            
+                        </li>
+                        
+                        <li class="service-item">
+                            
+                            <div class="service-icon-box">
+                                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+                            </div>
+                            
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Data Science</h4>
+                                
+                                <p class="service-item-text">
+                                    Telling stories, analyzing outcomes, and driving impact. 
+                                </p>
+                            </div>
+                            
+                        </li>
+                        
+                        <li class="service-item">
+                            
+                            <div class="service-icon-box">
+                                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+                            </div>
+                            
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Language Translation</h4>
+                                
+                                <p class="service-item-text">
+                                    English, Spanish, French, and German.
+                                </p>
+                            </div>
+                            
+                        </li>
+                        
+                    </ul>
+                    
+                </section>
+                
+                <br>
+                
+                <section class="service">
+                    
+                    <h3 class="h3 service-title">What I'm Learning</h3>
+                    
+                    <ul class="service-list">
+                        
+                        <li class="service-item">
+                            
+                            <div class="service-icon-box">
+                                <img src="./assets/images/icon-design.svg
+                                " alt="design icon" width="40">
+                            </div>
+                            
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Electronics</h4>
+                                
+                                <p class="service-item-text">
+                                    Tinkering with micrcontrollers and transducers to bring fun ideas to life.
+                                </p>
+                            </div>
+                            
+                        </li>
+                        
+                        <li class="service-item">
+                            
+                            <div class="service-icon-box">
+                                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+                            </div>
+                            
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">AWS</h4>
+                                
+                                <p class="service-item-text">
+                                    Experimenting with cloud services and infrastructure.
+                                </p>
+                            </div>
+                            
+                        </li>
+                        
+                    </ul>
+                    
+                </section>
+                
+            </article>
+            
+            
+            <!--
+                - #PROJECTS
+            -->
+            
+            <article class="projects" data-page="projects">
+                
+                <header>
+                    <h2 class="h2 article-title">Projects</h2>
+                </header>
+                
+                <section class="projects">
+                    
+                    <ul class="filter-list">
+                        
+                        <li class="filter-item">
+                            <button class="active" data-filter-btn>All</button>
+                        </li>
+                        
+                        <li class="filter-item">
+                            <button data-filter-btn>Data & ML</button>
+                        </li>
+                        
+                        <li class="filter-item">
+                            <button data-filter-btn>Web Dev</button>
+                        </li>
+                        
+                        <li class="filter-item">
+                            <button data-filter-btn>Electronics</button>
+                        </li>
+                        
+                        <li class="filter-item">
+                            <button data-filter-btn>Security</button>
+                        </li>
+                        
+                        <li class="filter-item">
+                            <button data-filter-btn>Games</button>
+                        </li>
+                        
+                        <li class="filter-item">
+                            <button data-filter-btn>Languages</button>
+                        </li>
+                        
+                    </ul>
+                    
+                    <div class="filter-select-box">
+                        
+                        <button class="filter-select" data-select>
+                            
+                            <div class="select-value" data-selecct-value>Select category</div>
+                            
+                            <div class="select-icon">
+                                <ion-icon name="chevron-down"></ion-icon>
+                            </div>
+                            
+                        </button>
+                        
+                        <ul class="select-list">
+                            
+                            <li class="select-item">
+                                <button data-select-item>All</button>
+                            </li>
+                            
+                            <li class="select-item">
+                                <button data-select-item>Data & ML</button>
+                            </li>
+                            
+                            <li class="select-item">
+                                <button data-select-item>Web Dev</button>
+                            </li>
+                            
+                            <li class="select-item">
+                                <button data-select-item>Electronics</button>
+                            </li>
+                            
+                            <li class="select-item">
+                                <button data-select-item>Security</button>
+                            </li>
+                            
+                            <li class="select-item">
+                                <button data-select-item>Games</button>
+                            </li>
+                            
+                            <li class="select-item">
+                                <button data-select-item>Languages</button>
+                            </li>
+                            
+                        </ul>
+                        
                     </div>
-  
-                    <img src="./assets/images/project-imgs/space-invaders.png" alt="Space Invaders" loading="lazy">
-                  </figure>
-  
-                  <h3 class="project-title">Space Invaders</h3>
-  
-                  <p class="project-category">Games</p>
-  
-                </a>
-              </li>
-
-            <li class="project-item  active" data-filter-item data-category="electronics,security">
-              <a href="https://github.com/aadriien/eCTF-2023-Tufts" target="_blank" rel="noopener noreferrer">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-imgs/eCTF.jpeg" alt="eCTF" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">eCTF 2023</h3>
-
-                <p class="project-category">Electronics, Security</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web dev">
-                <a href="https://github.com/aadriien/cs20-facebork" target="_blank" rel="noopener noreferrer">
-  
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-  
-                    <img src="./assets/images/project-imgs/facebork.png" alt="facebork" loading="lazy">
-                  </figure>
-  
-                  <h3 class="project-title">FaceBork</h3>
-  
-                  <p class="project-category">Web Dev</p>
-  
-                </a>
-              </li>
-  
-              <li class="project-item  active" data-filter-item data-category="web dev">
-                <a href="https://github.com/aadriien/cs20-tindog" target="_blank" rel="noopener noreferrer">
-  
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-  
-                    <img src="./assets/images/project-imgs/tindog.png" alt="tindog" loading="lazy">
-                  </figure>
-  
-                  <h3 class="project-title">TinDog</h3>
-  
-                  <p class="project-category">Web Dev</p>
-  
-                </a>
-              </li>
-
-            <li class="project-item  active" data-filter-item data-category="electronics,games">
-              <a href="https://github.com/aadriien/Arduino-reactionTime" target="_blank" rel="noopener noreferrer">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-imgs/reaction-time.png" alt="Reaction Time" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Reaction Time</h3>
-
-                <p class="project-category">Electronics, Games</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="electronics,games">
-              <a href="https://github.com/aadriien/Arduino-battleship" target="_blank" rel="noopener noreferrer">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-imgs/battleship.png" alt="Battleship" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Battleship</h3>
-
-                <p class="project-category">Electronics, Games</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="games,languages">
-              <a href="https://github.com/aadriien/Emil-Spiel" target="_blank" rel="noopener noreferrer">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-imgs/emil-spiel.png" alt="Emil Spiel" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Emil Spiel</h3>
-
-                <p class="project-category">Games, Languages</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="games">
-                <a href="https://github.com/aadriien/tic-tac-toe" target="_blank" rel="noopener noreferrer">
-  
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-  
-                    <img src="./assets/images/project-imgs/tic-tac-toe.png" alt="Tic Tac Toe" loading="lazy">
-                  </figure>
-  
-                  <h3 class="project-title">Tic Tac Toe</h3>
-  
-                  <p class="project-category">Games</p>
-  
-                </a>
-              </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #PLACES
-      -->
-
-      <article class="places" data-page="places">
-
-        <header>
-          <h2 class="h2 article-title">Places</h2>
-        </header>
-
-
-        <!-- interactive places globe -->
-        <section class="globe-container" data-globe>
-            <figure>
-                <div class="globe"></div>
-            </figure>
-        </section>
-
-
-
-        <section class="places-posts">
-            <ul class="places-posts-list">
-            </ul>
-          </section>
-
-      </article>
-
-    </div>
-
-  </main>
-
-
-
-
-  <!--
-    - three-globe for places
-  -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three-globe@2.24.4/dist/three-globe.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/three@0.139.0/examples/js/controls/OrbitControls.js"></script>
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+                    
+                    <ul class="project-list">
+                        
+                        <li class="project-item  active" data-filter-item data-category="data & ml,web dev,security">
+                            <a href="https://github.com/aadriien/price-tracker" target="_blank" rel="noopener noreferrer">
+                                
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <img src="./assets/images/project-imgs/work-in-progress.png" alt="Price Tracker" loading="lazy">
+                                </figure>
+                                
+                                <h3 class="project-title">Price Tracker</h3>
+                                
+                                <p class="project-category">Data & ML, Web Dev, Security</p>
+                                
+                            </a>
+                        </li>
+                        
+                        <li class="project-item  active" data-filter-item data-category="games">
+                            <a href="https://github.com/aadriien/space-invaders" target="_blank" rel="noopener noreferrer">
+                                
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <img src="./assets/images/project-imgs/space-invaders.png" alt="Space Invaders" loading="lazy">
+                                </figure>
+                                
+                                <h3 class="project-title">Space Invaders</h3>
+                                
+                                <p class="project-category">Games</p>
+                                
+                            </a>
+                        </li>
+                        
+                        <li class="project-item  active" data-filter-item data-category="electronics,security">
+                            <a href="https://github.com/aadriien/eCTF-2023-Tufts" target="_blank" rel="noopener noreferrer">
+                                
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <img src="./assets/images/project-imgs/eCTF.jpeg" alt="eCTF" loading="lazy">
+                                </figure>
+                                
+                                <h3 class="project-title">eCTF 2023</h3>
+                                
+                                <p class="project-category">Electronics, Security</p>
+                                
+                            </a>
+                        </li>
+                        
+                        <li class="project-item  active" data-filter-item data-category="web dev">
+                            <a href="https://github.com/aadriien/cs20-facebork" target="_blank" rel="noopener noreferrer">
+                                
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <img src="./assets/images/project-imgs/facebork.png" alt="facebork" loading="lazy">
+                                </figure>
+                                
+                                <h3 class="project-title">FaceBork</h3>
+                                
+                                <p class="project-category">Web Dev</p>
+                                
+                            </a>
+                        </li>
+                        
+                        <li class="project-item  active" data-filter-item data-category="web dev">
+                            <a href="https://github.com/aadriien/cs20-tindog" target="_blank" rel="noopener noreferrer">
+                                
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <img src="./assets/images/project-imgs/tindog.png" alt="tindog" loading="lazy">
+                                </figure>
+                                
+                                <h3 class="project-title">TinDog</h3>
+                                
+                                <p class="project-category">Web Dev</p>
+                                
+                            </a>
+                        </li>
+                        
+                        <li class="project-item  active" data-filter-item data-category="electronics,games">
+                            <a href="https://github.com/aadriien/Arduino-reactionTime" target="_blank" rel="noopener noreferrer">
+                                
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <img src="./assets/images/project-imgs/reaction-time.png" alt="Reaction Time" loading="lazy">
+                                </figure>
+                                
+                                <h3 class="project-title">Reaction Time</h3>
+                                
+                                <p class="project-category">Electronics, Games</p>
+                                
+                            </a>
+                        </li>
+                        
+                        <li class="project-item  active" data-filter-item data-category="electronics,games">
+                            <a href="https://github.com/aadriien/Arduino-battleship" target="_blank" rel="noopener noreferrer">
+                                
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <img src="./assets/images/project-imgs/battleship.png" alt="Battleship" loading="lazy">
+                                </figure>
+                                
+                                <h3 class="project-title">Battleship</h3>
+                                
+                                <p class="project-category">Electronics, Games</p>
+                                
+                            </a>
+                        </li>
+                        
+                        <li class="project-item  active" data-filter-item data-category="games,languages">
+                            <a href="https://github.com/aadriien/Emil-Spiel" target="_blank" rel="noopener noreferrer">
+                                
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <img src="./assets/images/project-imgs/emil-spiel.png" alt="Emil Spiel" loading="lazy">
+                                </figure>
+                                
+                                <h3 class="project-title">Emil Spiel</h3>
+                                
+                                <p class="project-category">Games, Languages</p>
+                                
+                            </a>
+                        </li>
+                        
+                        <li class="project-item  active" data-filter-item data-category="games">
+                            <a href="https://github.com/aadriien/tic-tac-toe" target="_blank" rel="noopener noreferrer">
+                                
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <img src="./assets/images/project-imgs/tic-tac-toe.png" alt="Tic Tac Toe" loading="lazy">
+                                </figure>
+                                
+                                <h3 class="project-title">Tic Tac Toe</h3>
+                                
+                                <p class="project-category">Games</p>
+                                
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </section>
+                
+            </article>
+            
+            
+            
+            
+            
+            <!--
+                - #PLACES
+            -->
+            
+            <article class="places" data-page="places">
+                
+                <header>
+                    <h2 class="h2 article-title">Places</h2>
+                </header>
+                
+                
+                <!-- interactive places globe -->
+                <section class="globe-container" data-globe>
+                    <figure>
+                        <div class="globe"></div>
+                    </figure>
+                </section>
+                
+                
+                
+                <section class="places-posts">
+                    <ul class="places-posts-list">
+                    </ul>
+                </section>
+                
+            </article>
+            
+        </div>
+        
+    </main>
+    
+    
+    
+    
+    <!--
+        - three-globe for places
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three-globe@2.24.4/dist/three-globe.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/three@0.139.0/examples/js/controls/OrbitControls.js"></script>
+    
+    
+    <!--
+        - custom js link
+    -->
+    <script src="./assets/js/script.js"></script>
+    
+    <!--
+        - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
 </body>
 
 </html>
+
+
