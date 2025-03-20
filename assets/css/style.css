@@ -276,7 +276,7 @@ body {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1366px) {
     #color-scheme-toggle {
         font-size: var(--fs-6);
         width: 100%;
