@@ -81,7 +81,10 @@
     --light-sky-blue: hsl(198, 66%, 79%);
     --muted-rose: hsl(348, 37%, 58%);
     --deep-teal: hsl(188, 39%, 33%);
-    
+
+    /* affiliations & webrings palette */
+    --hackNY-red: hsl(358, 79%, 51%);
+    --recurse-center-green: hsl(93, 66%, 41%);
     
     
     
