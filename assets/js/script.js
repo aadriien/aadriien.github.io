@@ -18,7 +18,7 @@ sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); }
 // custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
+const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
 select.addEventListener("click", function () { elementToggleFunc(this); });
@@ -290,6 +290,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     animateStars(); 
+});
+
+
+
+
+// By default, load first presentation in list (assumed to be most recent)
+window.addEventListener("DOMContentLoaded", () => {
+    const iframe = document.querySelector(".presentation-container iframe");
+    const firstCard = document.querySelector(".presentation-item");
+  
+    if (firstCard) {
+        const url = firstCard.getAttribute("data-url");
+        iframe.src = url;
+        firstCard.classList.add("active"); 
+    }
+});
+  
+
+// Handle selection of specific presentation to view
+const cards = document.querySelectorAll('.presentation-item');
+const iframe = document.querySelector('.presentation-container iframe');
+
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+        // Toggle 'active' class only for selected card
+        cards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+
+        const url = card.getAttribute('data-url');
+        iframe.src = `${url}`; 
+    });
 });
 
 
