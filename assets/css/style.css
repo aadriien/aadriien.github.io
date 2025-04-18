@@ -1189,6 +1189,25 @@ main {
     border: 0;
 }
 
+/* Mobile-specific tweaks (prevent slides controls from being cut off) */
+@media (max-width: 768px) {
+    .presentation-container {
+        aspect-ratio: auto;
+        height: 40vh; 
+        overflow: auto;
+    }
+
+    .presentation-container iframe {
+        height: 100%;
+    }
+
+    @media (max-height: 700px) {
+        .presentation-container {
+            height: 50vh; /* more height for shorter screens to show slides */
+        }
+    }
+}
+
 
 
 
