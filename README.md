@@ -43,6 +43,11 @@ A consistent, relaxed structure maintains cohesion and organization throughout t
 Whether viewing on a computer, phone, or tablet, you can enjoy all that my site has to offer.
 
 
+## Example Images
+![Example image of my projects page](./assets/images/example-imgs/aadriien-projects-page.png)
+![Example image of my places page](./assets/images/example-imgs/aadriien-places-page.png)
+
+
 ## Acknowledgements
 
 When first starting to build this site, I began by iterating on [codewithsadee](https://github.com/codewithsadee/vcard-personal-portfolio)'s open source profile template. I have since made extensive modifications—adjusting layout, style, functionality, etc., and adding several features specific to my needs. However, much of the core skeleton (e.g. navbars, grids, etc.) reflects Sadee's work. Thank you, Sadee! 
