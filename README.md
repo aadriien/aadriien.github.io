@@ -11,11 +11,13 @@ Enjoy visiting my small piece of the internet!
 
 ## Pages and Features
 
-- **About Me**: Who I am, who I'm connected with (affiliations + webring), and how to reach me
+- **About Me**: Who I am, what matters to me, and how to reach me
 
-- **Tech**: What kind of work I'm doing, and what tech I'm learning
+- **Tech**: What kinds of work I'm doing, and which concepts I'm exploring
 
 - **Projects**: A collection of things I've built—whether for purpose or play 
+
+- **Presentations**: An assortment of presentations, talks, and demos I've given 
 
 - **Places**: A cool way to check out my travel recommendations via an interactive globe
 
