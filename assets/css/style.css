@@ -1231,17 +1231,18 @@ main {
 .presentation-content-box { 
     text-align: center; 
     line-height: 1.6;
+    padding: 10px;
 }
 
 .presentation-item-title {
     color: var(--white-1);
     font-size: var(--fs-4);
-    margin-bottom: 7px;
+    margin-bottom: 15px;
 }
 
 .presentation-item-text {
     color: var(--light-gray);
-    font-size: var(--fs-6);
+    font-size: var(--fs-7);
 }
 
 .presentation-item:hover,
