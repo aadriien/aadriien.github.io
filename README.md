@@ -2,7 +2,7 @@
 
 ## Description
 
-Introducing  ——>  **[https://aadriien.github.io](https://aadriien.github.io)**  <——  my personal portfolio site! 
+Introducing  ——>  **[helloadrien.dev](https://helloadrien.dev)**  <——  my personal portfolio site! 
 
 This is where I showcase my work as a **Software Engineer**, highlight projects I've developed, and incorporate fun personal touches. My goal in building this website was to develop a vibe that is informative and playful, as much as it is professional. 
 
