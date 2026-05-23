@@ -1,6 +1,27 @@
 'use strict';
 
 
+function setParam(key, value) {
+    const p = new URLSearchParams(window.location.search);
+    p.set(key, value);
+    history.replaceState(null, '', '?' + p.toString());
+}
+
+function getParam(key) {
+    return new URLSearchParams(window.location.search).get(key);
+}
+
+function removeParam(key) {
+    const p = new URLSearchParams(window.location.search);
+    p.delete(key);
+    const qs = p.toString();
+    history.replaceState(null, '', qs ? '?' + qs : window.location.pathname);
+}
+
+function toSlug(text) {
+    return text.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
@@ -105,9 +126,12 @@ const pages = document.querySelectorAll("[data-page]");
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
     navigationLinks[i].addEventListener("click", function () {
-        
+        const pageName = this.innerHTML.toLowerCase();
+        setParam('page', pageName);
+        if (pageName !== 'presentations') removeParam('presentation');
+
         for (let i = 0; i < pages.length; i++) {
-            if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+            if (pageName === pages[i].dataset.page) {
                 pages[i].classList.add("active");
                 navigationLinks[i].classList.add("active");
                 window.scrollTo(0, 0);
@@ -293,6 +317,54 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+function restoreFromParams() {
+    const page = getParam('page');
+    const presentation = getParam('presentation');
+
+    if (page) {
+        for (let i = 0; i < pages.length; i++) {
+            if (page === pages[i].dataset.page) {
+                pages[i].classList.add("active");
+                navigationLinks[i].classList.add("active");
+            } 
+            else {
+                pages[i].classList.remove("active");
+                navigationLinks[i].classList.remove("active");
+            }
+        }
+    }
+
+    if (presentation) {
+        const allCards = document.querySelectorAll('.presentation-item');
+        const iframeEl = document.querySelector('.presentation-container iframe');
+
+        allCards.forEach(c => c.classList.remove('active'));
+
+        let matched = false;
+        allCards.forEach(card => {
+            const titleEl = card.querySelector('.presentation-item-title');
+
+            if (titleEl && toSlug(titleEl.textContent) === presentation) {
+                card.classList.add('active');
+
+                if (iframeEl) iframeEl.src = card.getAttribute('data-url');
+                matched = true;
+            }
+        });
+
+        // Fallback to first card if slug no longer matches
+        if (!matched) {
+            const firstCard = allCards[0];
+            if (firstCard) {
+                firstCard.classList.add('active');
+                
+                if (iframeEl) {
+                    iframeEl.src = firstCard.getAttribute('data-url');
+                }
+            }
+        }
+    }
+}
 
 
 // By default, load first presentation in list (assumed to be most recent)
@@ -305,6 +377,8 @@ window.addEventListener("DOMContentLoaded", () => {
         iframe.src = url;
         firstCard.classList.add("active"); 
     }
+
+    restoreFromParams();
 });
   
 
@@ -320,6 +394,9 @@ cards.forEach(card => {
 
         const url = card.getAttribute('data-url');
         iframe.src = `${url}`; 
+
+        const titleEl = card.querySelector('.presentation-item-title');
+        if (titleEl) setParam('presentation', toSlug(titleEl.textContent));
     });
 });
 
