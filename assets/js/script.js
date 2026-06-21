@@ -128,6 +128,12 @@ for (let i = 0; i < navigationLinks.length; i++) {
     navigationLinks[i].addEventListener("click", function () {
         const pageName = this.innerHTML.toLowerCase();
         setParam('page', pageName);
+
+        // send virtual pageview on tab click for GoatCounter tracking
+        if (window.goatcounter?.count) {
+            window.goatcounter.count({ path: location.pathname + '?page=' + pageName });
+        }
+
         if (pageName !== 'presentations') removeParam('presentation');
 
         for (let i = 0; i < pages.length; i++) {
